@@ -1,5 +1,43 @@
+@import url('https://fonts.googleapis.com/css2?family=Montserrat&display=swap');
+
+:root {
+    --fonte-tamanho: 20px;
+    --cor: black;
+    --fonte-familia: 'Montserrat', sans-serif;
+}
+
+
+body {
+    font-size: var(--fonte-tamanho);
+    color: var(--cor);
+    font-family: var(--fonte-familia);
+}
+
 h1 {
     text-align: center;
-    font-size: 32px;
     font-weight: bold;
+}
+
+.palavra__container {
+    display: flex;
+    flex-direction: column;
+    margin: 0 auto;
+    justify-content: center;
+    align-items: center;
+    width: 50vw;
+    text-align: center;
+    gap: 1em;
+}
+
+.palavra__inputs {
+    display: flex;
+    gap: 1em;
+}
+
+.letra {
+    width: 50px;
+    height: 50px;
+    font-size: 50px;
+    text-align: center;
+    text-transform: uppercase;
 }
