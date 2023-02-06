@@ -1,6 +1,6 @@
 # Palavra do Dia
 
-Projeto inspirado no jogo (Palavra do Dia)[https://palavra-do-dia.pt/]
+Projeto inspirado no jogo [Palavra do Dia](https://palavra-do-dia.pt/)
 
 ## Desafios
 
