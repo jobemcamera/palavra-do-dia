@@ -5,8 +5,8 @@ Projeto inspirado no jogo [Palavra do Dia](https://palavra-do-dia.pt/)
 ## Desafios
 
 - (X) Layout inicial da página;
-- ( ) Criar um array de palavras com 5 letras;
-- ( ) Sortear uma palavra aleatoriamente;
+- (X) Criar um array de palavras com 5 letras;
+- (X) Sortear uma palavra aleatoriamente;
 - ( ) Receber e concatenar letras do input em um array;
 - ( ) Tratar inputs para receber somente letras;
 - ( ) Verificar se a letra na posição informada é igual a letra na posição da palavra do dia;
