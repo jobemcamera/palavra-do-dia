@@ -1,21 +1,24 @@
 @import url('https://fonts.googleapis.com/css2?family=Montserrat&display=swap');
 
 :root {
-    --fonte-tamanho: 20px;
-    --cor: black;
+    --fonte-tamanho: 40px;
+    --cor-texto: white;
+    --cor-fundo-input: #00337C;
+    --cor-fundo-pagina: #13005A;
     --fonte-familia: 'Montserrat', sans-serif;
 }
 
-
 body {
-    font-size: var(--fonte-tamanho);
-    color: var(--cor);
+    color: var(--cor-texto);
     font-family: var(--fonte-familia);
+    background-color: var(--cor-fundo-pagina);
 }
 
 h1 {
     text-align: center;
     font-weight: bold;
+    text-transform: uppercase;
+    font-size: var(--fonte-tamanho);
 }
 
 .palavra__container {
@@ -26,18 +29,29 @@ h1 {
     align-items: center;
     width: 50vw;
     text-align: center;
-    gap: 1em;
+    gap: 0.5em;
 }
 
 .palavra__inputs {
     display: flex;
-    gap: 1em;
+    gap: 0.5em;
+    border: none;
+}
+
+input {
+    background-color: var(--cor-fundo-input);
+    border: none;
+    color: var(--cor-texto);
+}
+
+input:focus {
+    outline: none;
 }
 
 .letra {
     width: 50px;
     height: 50px;
-    font-size: 50px;
+    font-size: var(--fonte-tamanho);
     text-align: center;
     text-transform: uppercase;
 }

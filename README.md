@@ -14,4 +14,4 @@ Projeto inspirado no jogo [Palavra do Dia](https://palavra-do-dia.pt/)
     - ( ) Se letra está na posição errada mas existe na palavra do dia: mudar cor do input para amarelo;
     - ( ) Se letra não existe na palavra do dia: mudar cor do input para vermelho;
 - ( ) Animação dos inputs após dar enter nas letras informadas;
-- ( ) Após 5 palavras erradas, o jogo acaba e é mostrado a palavra do dia na tela;
+- ( ) Após 6 palavras erradas, o jogo acaba e é mostrado a palavra do dia na tela;
