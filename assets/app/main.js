@@ -6,6 +6,8 @@ let palavraFormada = [];
 let listaLetras = [];
 const palavraSorteada = sortearPalavra();
 
+
+// Evento de keypress do botão ENTER
 document.addEventListener("keypress", function(evento) {
     if (evento.key == 'Enter') {
         letraDigitada.forEach((letra, index) => {
