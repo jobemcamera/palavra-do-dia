@@ -6,18 +6,23 @@ let palavraFormada = [];
 let listaLetras = [];
 const palavraSorteada = sortearPalavra();
 
-
 // Evento de keypress do botão ENTER
 document.addEventListener("keypress", function(evento) {
     if (evento.key == 'Enter') {
         letraDigitada.forEach((letra, index) => {
-            if (letra.value == "") {
-                console.log(`index ${index} vazio`);
-                
-            } else {
+            if (!letra.value == "") {
                 console.log(`index ${index} letra ${letra.value}`);
                 listaLetras.push(letra.value);
-                console.log(`Lista de letras: ${listaLetras}`);
+                if (listaLetras[index] == palavraSorteada[index]) {
+                    letraDigitada[index].classList.add('certo');
+                } else if (palavraSorteada.includes(listaLetras[index])) {
+                    letraDigitada[index].classList.add('errado');
+                } else {
+                    letraDigitada[index].classList.add('ausente');
+                }
+                
+            } else {
+                console.log(`index ${index} vazio`);
             }
                         
         });

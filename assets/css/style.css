@@ -4,6 +4,9 @@
     --fonte-tamanho: 40px;
     --cor-texto: white;
     --cor-fundo-input: #00337C;
+    --cor-fundo-certo: #538d4e;
+    --cor-fundo-errado: #b59f3b;
+    --cor-fundo-ausente: #86888a;
     --cor-fundo-pagina: #13005A;
     --fonte-familia: 'Montserrat', sans-serif;
 }
@@ -54,4 +57,28 @@ input:focus {
     font-size: var(--fonte-tamanho);
     text-align: center;
     text-transform: uppercase;
+}
+
+.certo {
+    background-color: var(--cor-fundo-certo);
+    animation: go-back 0.7s; 
+}
+
+.errado {
+    background-color: var(--cor-fundo-errado);
+    animation: go-back 0.7s; 
+}
+
+.ausente {
+    background-color: var(--cor-fundo-ausente);
+    animation: go-back 0.7s; 
+}
+
+@keyframes go-back {
+    from {
+        transform: translateY(0px);
+    }
+    to {
+        transform: translateY(-5px);
+    }
 }

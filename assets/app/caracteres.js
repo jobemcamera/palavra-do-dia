@@ -1,4 +1,4 @@
-const caracterDigitado = document.querySelectorAll('.letra');
+export const caracterDigitado = document.querySelectorAll('.letra');
 
 // Evento de keypress para impedir caracteres especiais
 caracterDigitado.forEach((elemento) => {
