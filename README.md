@@ -9,6 +9,8 @@ Projeto inspirado no jogo [Palavra do Dia](https://palavra-do-dia.pt/)
 - (X) Sortear uma palavra aleatoriamente;
 - (X) Receber e concatenar letras do input em um array;
 - (X) Tratar inputs para receber somente letras;
+- (X) Pular para o próximo input após preencher o anterior;
+- (X) Apagar letra do input anterior com a tecla Backspace;
 - ( ) Verificar se a letra na posição informada é igual a letra na posição da palavra do dia;
     - ( ) Se letra está na posição certa: mudar cor do input para verde;
     - ( ) Se letra está na posição errada mas existe na palavra do dia: mudar cor do input para amarelo;
