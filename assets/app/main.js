@@ -19,18 +19,8 @@ function tentarPalavra() {
             
             // Letra só ficará com cor diferente SE for uma palavra de 5 letras
             if (listaLetras.length == 5) {
-                listaLetras.forEach((letraTeste, indice) => {
-                    if (letraTeste == palavraSorteada[indice]) {
-                        console.log(letraTeste, indice)
-                        ordemDaPalavra[indice].classList.add('certo');
-                    } else if (palavraSorteada.includes(letraTeste)) {
-                        ordemDaPalavra[indice].classList.add('errado');
-                        console.log(letraTeste, indice)
-                    } else {
-                        ordemDaPalavra[indice].classList.add('ausente');
-                        console.log(letraTeste, indice)
-                    }
-                });
+                mudaCorDaLetra(ordemDaPalavra);
+                mudaParaProximaTentativa(ordem);
             } 
                  
         } else {
@@ -56,6 +46,27 @@ function tentarPalavra() {
         palavraFormada = [];
         listaLetras = [];
     }  
+}
+
+function mudaCorDaLetra(ordemDaPalavra) {
+    listaLetras.forEach((letraTeste, indice) => {
+        if (letraTeste == palavraSorteada[indice]) {
+            console.log(letraTeste, indice)
+            ordemDaPalavra[indice].classList.add('certo');
+        } else if (palavraSorteada.includes(letraTeste)) {
+            ordemDaPalavra[indice].classList.add('errado');
+            console.log(letraTeste, indice)
+        } else {
+            ordemDaPalavra[indice].classList.add('ausente');
+            console.log(letraTeste, indice)
+        }
+    });
+}
+
+function mudaParaProximaTentativa(ordem) {
+    if((ordem + 1) <= 6) {
+        document.querySelector(`[data-palavra="${ordem+1}"]`).focus();
+    }
 }
 
 document.addEventListener("keypress", function(evento) {
