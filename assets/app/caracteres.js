@@ -1,5 +1,8 @@
 export const caracterDigitado = document.querySelectorAll('.letra');
 
+// Carregar a página com o foco no primeiro Input
+caracterDigitado[0].focus();
+
 // Evento de keypress para impedir caracteres especiais
 caracterDigitado.forEach((elemento) => {
     elemento.addEventListener("keypress", function(e) {

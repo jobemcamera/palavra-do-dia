@@ -5,42 +5,61 @@ let listaLetras = [];
 const palavraSorteada = sortearPalavra();
 let ordem = 1;
 
-function ordemDaTentativaDaPalavra() {
+function tentarPalavra() {
     
     const ordemDaPalavra = document.querySelectorAll(`[data-palavra="${ordem}"]`);
+    console.log(`Ordem: ${ordem}`)
+
+
     ordemDaPalavra.forEach((letra, index) => {
-        if (!letra.value == "") {
+    
+        if (letra.value != "") {
             console.log(`index ${index} letra ${letra.value}`);
-            listaLetras.push(letra.value);
-            if (listaLetras[index] == palavraSorteada[index]) {
-                ordemDaPalavra[index].classList.add('certo');
-            } else if (palavraSorteada.includes(listaLetras[index])) {
-                ordemDaPalavra[index].classList.add('errado');
-            } else {
-                ordemDaPalavra[index].classList.add('ausente');
-            }
+            listaLetras.push(letra.value); 
+            
+            // Letra só ficará com cor diferente SE for uma palavra de 5 letras
+            if (listaLetras.length == 5) {
+                listaLetras.forEach((letraTeste, indice) => {
+                    if (letraTeste == palavraSorteada[indice]) {
+                        console.log(letraTeste, indice)
+                        ordemDaPalavra[indice].classList.add('certo');
+                    } else if (palavraSorteada.includes(letraTeste)) {
+                        ordemDaPalavra[indice].classList.add('errado');
+                        console.log(letraTeste, indice)
+                    } else {
+                        ordemDaPalavra[indice].classList.add('ausente');
+                        console.log(letraTeste, indice)
+                    }
+                });
+            } 
+                 
         } else {
-            console.log(`index ${index} vazio`);
-        }
-                    
+           console.log(`index ${index} vazio`);
+        }                   
     });
 
     palavraFormada = listaLetras.join('');
     console.log(`\n A palavra foramda é: ${palavraFormada}`);
 
-    if (palavraFormada == palavraSorteada) {
-        console.log('Você acertou!');
+    
+    if (palavraFormada.length < 5) {
+        palavraFormada = [];
+        listaLetras = [];
+        return;
     } else {
-        console.log('Você errou!');
-    }     
-
-    palavraFormada = [];
-    listaLetras = [];
-    ordem += 1;
+        ordem += 1;
+        if (palavraFormada == palavraSorteada) {
+            console.log('Você acertou!');
+        } else {
+            console.log('Você errou!');
+        }
+        palavraFormada = [];
+        listaLetras = [];
+    }  
 }
 
 document.addEventListener("keypress", function(evento) {
     if (evento.key == 'Enter') {
-        ordemDaTentativaDaPalavra();
+        tentarPalavra();
     }
 });
