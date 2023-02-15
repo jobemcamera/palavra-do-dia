@@ -14,8 +14,14 @@ Projeto inspirado no jogo [Palavra do Dia](https://palavra-do-dia.pt/)
 - [X] Verificar se a letra na posição informada é igual a letra na posição da palavra do dia;
     - [X] Se letra está na posição certa: mudar cor do input para verde;
     - [X] Se letra está na posição errada mas existe na palavra do dia: mudar cor do input para amarelo;
-    - [X] Se letra não existe na palavra do dia: mudar cor do input para vermelho;
+    - [X] Se letra não existe na palavra do dia: mudar cor do input para cinza;
 - [X] Animação dos inputs após dar enter nas letras informadas;
 - [X] Adicionar as funções para as 6 tentativas;
-- [ ] Após tentar a palavra, mudar cursor para a próxima tentativa;
+- [X] Após tentar a palavra, mudar cursor para a próxima tentativa;
 - [ ] Após 6 palavras erradas, o jogo acaba e é mostrado a palavra do dia na tela;
+- [ ] Sortear uma palavra aleatoriamente a cada 24 horas;
+- [ ] Salvar informações dos inputs no localStorage;
+- [ ] Aumentar o array com mais palavras;
+- [ ] Permitir inputs somente com palavaras que possuem no array;
+- [ ] Criar modal com histórico de acertos e erros;
+- [ ] Criar um teclado virtual que somente irá mostrar quais letras já/não foram utilizadas indicadas pelas mesmas cores;
