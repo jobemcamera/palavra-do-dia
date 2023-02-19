@@ -4,6 +4,7 @@
     --fonte-tamanho: 40px;
     --cor-texto: white;
     --cor-fundo-input: #00337C;
+    --cor-borda-input: #367cec;
     --cor-fundo-certo: #538d4e;
     --cor-fundo-errado: #b59f3b;
     --cor-fundo-ausente: #86888a;
@@ -37,18 +38,21 @@ h1 {
 
 .palavra__inputs {
     display: flex;
+    align-items: center;
+    justify-content: center;
     gap: 0.5em;
-    border: none;
 }
 
 input {
     background-color: var(--cor-fundo-input);
     border: none;
     color: var(--cor-texto);
+    caret-color: transparent;
 }
 
 input:focus {
     outline: none;
+    border: solid 2px var(--cor-borda-input);
 }
 
 .letra {
@@ -61,16 +65,19 @@ input:focus {
 
 .certo {
     background-color: var(--cor-fundo-certo);
+    border-color: var(--cor-fundo-certo);
     animation: go-back 0.7s; 
 }
 
 .errado {
     background-color: var(--cor-fundo-errado);
+    border-color: var(--cor-fundo-errado);
     animation: go-back 0.7s; 
 }
 
 .ausente {
     background-color: var(--cor-fundo-ausente);
+    border-color: var(--cor-fundo-ausente);
     animation: go-back 0.7s; 
 }
 

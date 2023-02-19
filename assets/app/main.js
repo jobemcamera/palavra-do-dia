@@ -8,11 +8,9 @@ let ordem = 1;
 function tentarPalavra() {
     
     const ordemDaPalavra = document.querySelectorAll(`[data-palavra="${ordem}"]`);
-    console.log(`Ordem: ${ordem}`)
-
+    console.log(`Ordem: ${ordem}`);
 
     ordemDaPalavra.forEach((letra, index) => {
-        
         if (letra.value != "") {
             console.log(`index ${index} letra ${letra.value}`);
             listaLetras.push(letra.value); 
