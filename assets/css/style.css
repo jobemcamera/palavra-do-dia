@@ -4,7 +4,8 @@
     --fonte-tamanho: 40px;
     --cor-texto: white;
     --cor-fundo-input: #00337C;
-    --cor-borda-input: #367cec;
+    --cor-borda-input-padrao: #367cec;
+    --cor-borda-input-focus: white;
     --cor-fundo-certo: #538d4e;
     --cor-fundo-errado: #b59f3b;
     --cor-fundo-ausente: #86888a;
@@ -45,14 +46,18 @@ h1 {
 
 input {
     background-color: var(--cor-fundo-input);
-    border: none;
+    border: solid 2px var(--cor-borda-input-padrao);
     color: var(--cor-texto);
     caret-color: transparent;
 }
 
 input:focus {
     outline: none;
-    border: solid 2px var(--cor-borda-input);
+    border: solid 2px var(--cor-borda-input-focus);
+}
+
+.bloqueado {
+    background-color: var(--cor-fundo-pagina);
 }
 
 .letra {

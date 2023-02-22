@@ -70,6 +70,7 @@ function bloquearLiberarInput(ordemDaPalavra) {
     }));
     document.querySelectorAll(`[data-palavra="${ordem+1}"]`).forEach(letraDaProximaTentativa => {
         letraDaProximaTentativa.removeAttribute("disabled");
+        letraDaProximaTentativa.classList.remove("bloqueado");
     });
 }
 
