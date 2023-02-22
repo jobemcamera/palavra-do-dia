@@ -3,9 +3,9 @@
 :root {
     --fonte-tamanho: 40px;
     --cor-texto: white;
-    --cor-fundo-input: #00337C;
     --cor-borda-input-padrao: #367cec;
     --cor-borda-input-focus: white;
+    --cor-fundo-input-bloqueado: #00337C;
     --cor-fundo-certo: #538d4e;
     --cor-fundo-errado: #b59f3b;
     --cor-fundo-ausente: #86888a;
@@ -57,7 +57,7 @@ input:focus {
 }
 
 .bloqueado {
-    background-color: var(--cor-fundo-pagina);
+    background-color: var(--cor-fundo-input-bloqueado);
 }
 
 .letra {
