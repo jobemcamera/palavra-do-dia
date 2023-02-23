@@ -1,4 +1,4 @@
-import { sortearPalavra } from "./listaDePalavras.js";
+import { sortearPalavra } from "./sortearPalavra.js";
 
 let palavraFormada = [];
 let listaLetras = [];
