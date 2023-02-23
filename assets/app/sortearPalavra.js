@@ -1,8 +1,8 @@
-import { listaDePalavras } from "./listaDePalavras.js";
+import { listaDePalavrasSemAcento } from "./listaDePalavras.js";
 
 export function sortearPalavra() {
-    const indiceSorteado = parseInt(Math.random() * listaDePalavras.length);
-    const palavraSorteada = listaDePalavras[indiceSorteado].normalize("NFD").replace(/[\u0300-\u036f]/g, "");
+    const indiceSorteado = parseInt(Math.random() * listaDePalavrasSemAcento.length);
+    const palavraSorteada = listaDePalavrasSemAcento[indiceSorteado];
     console.log(palavraSorteada, indiceSorteado);
     return palavraSorteada;
 }

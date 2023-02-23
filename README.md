@@ -20,10 +20,11 @@ Projeto inspirado no jogo [Palavra do Dia](https://palavra-do-dia.pt/)
 - [X] Começar o jogo com somente input liberado para a primeira tentativa;
 - [X] Liberar o input da próxima tentativa e bloquear a anterior;
 - [X] Após tentar a palavra, mudar cursor para a próxima tentativa;
+- [X] Aumentar o array com mais palavras;
+- [X] Remover acentos das palavras;
+- [X] Permitir inputs somente com palavaras que possuem no array;
 - [ ] Após 6 palavras erradas, o jogo acaba e é mostrado a palavra do dia na tela;
 - [ ] Sortear uma palavra aleatoriamente a cada 24 horas;
-- [ ] Aumentar o array com mais palavras;
-- [ ] Permitir inputs somente com palavaras que possuem no array;
 - [ ] Criar modal com histórico de acertos e erros;
 - [ ] Criar um teclado virtual que somente irá mostrar quais letras já/não foram utilizadas indicadas pelas mesmas cores;
 - [ ] Salvar informações dos inputs no localStorage;

@@ -1,3 +1,4 @@
+import { listaDePalavrasSemAcento } from "./listaDePalavras.js";
 import { sortearPalavra } from "./sortearPalavra.js";
 
 let palavraFormada = [];
@@ -15,7 +16,8 @@ function tentarPalavra() {
             console.log(`index ${index} letra ${letra.value}`);
             listaLetras.push(letra.value); 
             
-            if (listaLetras.length == 5) {
+            if (listaLetras.length == 5 && listaDePalavrasSemAcento.includes(listaLetras.join(''))) {
+                console.log(listaDePalavrasSemAcento.includes(listaLetras.join('')))
                 mudaCorDaLetra(ordemDaPalavra);
                 bloquearLiberarInput(ordemDaPalavra);
                 mudaParaProximaTentativa();
@@ -30,7 +32,9 @@ function tentarPalavra() {
     console.log(`\n A palavra foramda é: ${palavraFormada}`);
 
     
-    if (palavraFormada.length < 5) {
+    if (palavraFormada.length < 5 || (listaDePalavrasSemAcento.includes(listaLetras.join('')) == false)) {
+        console.log(listaDePalavrasSemAcento.includes(listaLetras.join('')))
+        console.log(palavraFormada)
         palavraFormada = [];
         listaLetras = [];
         return;
