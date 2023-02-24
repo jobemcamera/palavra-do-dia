@@ -1,7 +1,9 @@
 @import url('https://fonts.googleapis.com/css2?family=Montserrat&display=swap');
 
 :root {
-    --fonte-tamanho: 40px;
+    --fonte-tamanho-titulo: 40px;
+    --fonte-tamanho-input: 40px;
+    --fonte-tamanho-botao: 20px;
     --cor-texto: white;
     --cor-borda-input-padrao: #367cec;
     --cor-borda-input-focus: white;
@@ -10,6 +12,7 @@
     --cor-fundo-errado: #b59f3b;
     --cor-fundo-ausente: #86888a;
     --cor-fundo-pagina: #13005A;
+    --cor-botao-letra: #00337C;
     --fonte-familia: 'Montserrat', sans-serif;
 }
 
@@ -17,80 +20,4 @@ body {
     color: var(--cor-texto);
     font-family: var(--fonte-familia);
     background-color: var(--cor-fundo-pagina);
-}
-
-h1 {
-    text-align: center;
-    font-weight: bold;
-    text-transform: uppercase;
-    font-size: var(--fonte-tamanho);
-}
-
-.palavra__container {
-    display: flex;
-    flex-direction: column;
-    margin: 0 auto;
-    justify-content: center;
-    align-items: center;
-    width: 50vw;
-    text-align: center;
-    gap: 0.5em;
-}
-
-.palavra__inputs {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    gap: 0.5em;
-}
-
-input {
-    background-color: var(--cor-fundo-input);
-    border: solid 2px var(--cor-borda-input-padrao);
-    color: var(--cor-texto);
-    caret-color: transparent;
-}
-
-input:focus {
-    outline: none;
-    border: solid 2px var(--cor-borda-input-focus);
-}
-
-.bloqueado {
-    background-color: var(--cor-fundo-input-bloqueado);
-}
-
-.letra {
-    width: 50px;
-    height: 50px;
-    font-size: var(--fonte-tamanho);
-    text-align: center;
-    text-transform: uppercase;
-}
-
-.certo {
-    background-color: var(--cor-fundo-certo);
-    border-color: var(--cor-fundo-certo);
-    animation: go-back 0.7s; 
-}
-
-.errado {
-    background-color: var(--cor-fundo-errado);
-    border-color: var(--cor-fundo-errado);
-    animation: go-back 0.7s; 
-}
-
-.ausente {
-    background-color: var(--cor-fundo-ausente);
-    border-color: var(--cor-fundo-ausente);
-    animation: go-back 0.7s; 
-}
-
-@keyframes go-back {
-    from {
-        transform: translateY(0px);
-    }
-    to {
-        transform: translateY(-5px);
-    }
 }

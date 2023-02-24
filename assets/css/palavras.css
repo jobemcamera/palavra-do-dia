@@ -1,0 +1,75 @@
+main {
+    height: 50vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.palavra__container {
+    display: flex;
+    flex-direction: column;
+    margin: 0 auto;
+    justify-content: center;
+    align-items: center;
+    width: 50vw;
+    text-align: center;
+    gap: 0.5em;
+}
+
+.palavra__inputs {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.5em;
+}
+
+input {
+    background-color: var(--cor-fundo-input);
+    border: solid 2px var(--cor-borda-input-padrao);
+    color: var(--cor-texto);
+    caret-color: transparent;
+}
+
+input:focus {
+    outline: none;
+    border: solid 2px var(--cor-borda-input-focus);
+}
+
+.bloqueado {
+    background-color: var(--cor-fundo-input-bloqueado);
+}
+
+.letra {
+    width: 50px;
+    height: 50px;
+    font-size: var(--fonte-tamanho-input);
+    text-align: center;
+    text-transform: uppercase;
+}
+
+.certo {
+    background-color: var(--cor-fundo-certo);
+    border-color: var(--cor-fundo-certo);
+    animation: go-back 0.7s; 
+}
+
+.errado {
+    background-color: var(--cor-fundo-errado);
+    border-color: var(--cor-fundo-errado);
+    animation: go-back 0.7s; 
+}
+
+.ausente {
+    background-color: var(--cor-fundo-ausente);
+    border-color: var(--cor-fundo-ausente);
+    animation: go-back 0.7s; 
+}
+
+@keyframes go-back {
+    from {
+        transform: translateY(0px);
+    }
+    to {
+        transform: translateY(-5px);
+    }
+}

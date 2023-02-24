@@ -1,0 +1,19 @@
+.rodape {
+    height: 10vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.rodape__container {
+    text-align: center;
+}
+
+.rodape__texto {
+    padding: 0.2em 0;
+}
+
+a {
+    color: var(--cor-fundo-ausente);
+    text-decoration: none;
+}

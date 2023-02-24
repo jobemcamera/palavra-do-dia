@@ -4,11 +4,18 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="./assets/css/style.css">
+    <link rel="stylesheet" href="assets/css/reset.css">
+    <link rel="stylesheet" href="assets/css/style.css">
+    <link rel="stylesheet" href="assets/css/cabecalho.css">
+    <link rel="stylesheet" href="assets/css/palavras.css">
+    <link rel="stylesheet" href="assets/css/teclado.css">
+    <link rel="stylesheet" href="assets/css/rodape.css">
     <title>Palavra do dia</title>
 </head>
 <header>
-    <h1>Palavra do dia</h1>
+    <h1 class="cabecalho__titulo">Palavra do dia</h1>
+</header>
+<main>
     <div class="palavra">
         <div class="palavra__container">
             <div class="palavra__inputs">
@@ -54,10 +61,50 @@
                 <input type="text" class="letra bloqueado sexta-palavra" data-palavra="6" disabled="true" maxlength="1">
             </div>
         </div>
-            
-        
     </div>
-</header>
+</main>
+<section class="teclado">
+    <div class="teclado__container">
+        <div class="teclado__container--linha">
+            <button data-tecla="q" class="teclado__botao">Q</button>
+            <button data-tecla="w" class="teclado__botao">W</button>
+            <button data-tecla="e" class="teclado__botao">E</button>
+            <button data-tecla="r" class="teclado__botao">R</button>
+            <button data-tecla="t" class="teclado__botao">T</button>
+            <button data-tecla="y" class="teclado__botao">Y</button>
+            <button data-tecla="u" class="teclado__botao">U</button>
+            <button data-tecla="i" class="teclado__botao">I</button>
+            <button data-tecla="o" class="teclado__botao">O</button>
+            <button data-tecla="p" class="teclado__botao">P</button>
+        </div>
+        <div class="teclado__container--linha">
+            <button data-tecla="a" class="teclado__botao">A</button>
+            <button data-tecla="s" class="teclado__botao">S</button>
+            <button data-tecla="d" class="teclado__botao">D</button>
+            <button data-tecla="f" class="teclado__botao">F</button>
+            <button data-tecla="g" class="teclado__botao">G</button>
+            <button data-tecla="h" class="teclado__botao">H</button>
+            <button data-tecla="j" class="teclado__botao">J</button>
+            <button data-tecla="k" class="teclado__botao">K</button>
+            <button data-tecla="l" class="teclado__botao">L</button>
+        </div>
+        <div class="teclado__container--linha">
+            <button data-tecla="z" class="teclado__botao">Z</button>
+            <button data-tecla="x" class="teclado__botao">X</button>
+            <button data-tecla="c" class="teclado__botao">C</button>
+            <button data-tecla="v" class="teclado__botao">V</button>
+            <button data-tecla="b" class="teclado__botao">B</button>
+            <button data-tecla="n" class="teclado__botao">N</button>
+            <button data-tecla="m" class="teclado__botao">M</button>
+        </div>
+    </div>
+</section>
+<footer class="rodape">
+    <div class="rodape__container">
+        <p class="rodape__texto">Desenvolvido por Jobe Camera</p>
+        <p class="rodape__texto">Inspirado nos jogos <a href="https://palavra-do-dia.pt/">Palavra do Dia</a> e <a href="https://term.ooo/">Termo</a>.</p>
+    </div>
+</footer>
 <script src="assets/app/listaDePalavras.js" type="module"></script>
 <script src="assets/app/sortearPalavra.js" type="module"></script>
 <script src="assets/app/main.js" type="module"></script>

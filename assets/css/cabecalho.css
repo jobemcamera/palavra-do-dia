@@ -1,0 +1,14 @@
+header {
+    height: 10vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.cabecalho__titulo {
+    text-align: center;
+    font-weight: bold;
+    text-transform: uppercase;
+    font-size: var(--fonte-tamanho-titulo);
+    display: flex;
+}
