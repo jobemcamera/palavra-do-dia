@@ -48,20 +48,20 @@ input:focus {
 }
 
 .certo {
-    background-color: var(--cor-fundo-certo);
-    border-color: var(--cor-fundo-certo);
+    background-color: var(--cor-fundo-certo) !important; 
+    border-color: var(--cor-fundo-certo) !important;
     animation: go-back 0.7s; 
 }
 
 .errado {
-    background-color: var(--cor-fundo-errado);
-    border-color: var(--cor-fundo-errado);
+    background-color: var(--cor-fundo-errado) !important;
+    border-color: var(--cor-fundo-errado) !important;
     animation: go-back 0.7s; 
 }
 
 .ausente {
-    background-color: var(--cor-fundo-ausente);
-    border-color: var(--cor-fundo-ausente);
+    background-color: var(--cor-fundo-ausente) !important;
+    border-color: var(--cor-fundo-ausente) !important;
     animation: go-back 0.7s; 
 }
 

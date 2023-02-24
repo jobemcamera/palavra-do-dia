@@ -25,7 +25,8 @@ Projeto inspirado nos jogos [Palavra do Dia](https://palavra-do-dia.pt/) e [Term
 - [X] Remover acentos das palavras;
 - [X] Permitir inputs somente com palavaras que possuem no array;
 - [X] Criar um teclado virtual;
-    - [ ] Mostrar quais letras já/não foram utilizadas indicadas pelas mesmas cores;
+    - [X] Mostrar quais letras já/não foram utilizadas indicadas pelas mesmas cores;
+    - [ ] Ativar a função do botão para inserir a letra nos inputs; 
 - [ ] Após 6 palavras erradas, o jogo acaba e é mostrado a palavra do dia na tela;
 - [ ] Sortear uma palavra aleatoriamente a cada 24 horas;
 - [ ] Criar modal com histórico de acertos e erros;

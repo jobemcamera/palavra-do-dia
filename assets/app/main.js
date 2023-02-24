@@ -5,6 +5,7 @@ let palavraFormada = [];
 let listaLetras = [];
 const palavraSorteada = sortearPalavra();
 let ordem = 1;
+const tecladoBotao = document.querySelectorAll('[data-tecla]');
 
 function tentarPalavra() {
     
@@ -17,8 +18,7 @@ function tentarPalavra() {
             listaLetras.push(letra.value); 
             
             if (listaLetras.length == 5 && listaDePalavrasSemAcento.includes(listaLetras.join(''))) {
-                console.log(listaDePalavrasSemAcento.includes(listaLetras.join('')))
-                mudaCorDaLetra(ordemDaPalavra);
+                mudaCorDaLetraDoInput(ordemDaPalavra);
                 bloquearLiberarInput(ordemDaPalavra);
                 mudaParaProximaTentativa();
             } 
@@ -50,16 +50,45 @@ function tentarPalavra() {
     }  
 }
 
-function mudaCorDaLetra(ordemDaPalavra) {
+function mudaCorDaLetraDoInput(ordemDaPalavra) {
     listaLetras.forEach((letraTeste, indice) => {
         if (letraTeste == palavraSorteada[indice]) {
-            ordemDaPalavra[indice].classList.add('certo');
+            ordemDaPalavra[indice].classList.add("certo");
+            mudaCorDaLetraDoTeclado(letraTeste, "certo"); 
         } else if (palavraSorteada.includes(letraTeste)) {
-            ordemDaPalavra[indice].classList.add('errado');
+            ordemDaPalavra[indice].classList.add("errado");
+            mudaCorDaLetraDoTeclado(letraTeste, "errado");
         } else {
-            ordemDaPalavra[indice].classList.add('ausente');
+            ordemDaPalavra[indice].classList.add("ausente");
+            mudaCorDaLetraDoTeclado(letraTeste, "ausente");
         }
     });
+}
+
+function mudaCorDaLetraDoTeclado(letraTeste, condicao) {
+    if (condicao == "certo") {
+        tecladoBotao.forEach(tecla => {
+                if (tecla.dataset.tecla == letraTeste) {
+                    tecla.classList.remove("errado");
+                    tecla.classList.add("certo");
+                } else if (tecla.dataset.tecla == letraTeste && tecla.classList.contains("errado")) {
+                    tecla.classList.remove("errado");
+                    tecla.classList.add("certo");
+                }
+            });
+    } else if (condicao == "errado") {
+        tecladoBotao.forEach(tecla => {
+            if (tecla.dataset.tecla == letraTeste && tecla.classList.contains("certo") == false) {
+                tecla.classList.add("errado");
+            } 
+        });
+    } else if (condicao == "ausente") {
+        tecladoBotao.forEach(tecla => {
+            if (tecla.dataset.tecla == letraTeste) {
+                tecla.classList.add("ausente");
+            }
+        });
+    }
 }
 
 function mudaParaProximaTentativa() {
