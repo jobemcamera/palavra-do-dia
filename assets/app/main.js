@@ -3,12 +3,14 @@ import { sortearPalavra } from "./sortearPalavra.js";
 
 let palavraFormada = [];
 let listaLetras = [];
-const palavraSorteada = sortearPalavra();
 let ordem = 1;
+const palavraSorteada = sortearPalavra();
 const tecladoBotao = document.querySelectorAll('[data-tecla]');
+const mensagemDeRetorno = document.querySelector('.palavra__retorno--mensagem');
 
 function tentarPalavra() {
-    
+    mensagemDeRetornoPadrao('');
+    mensagemDeRetorno.style.backgroundColor = "transparent";
     const ordemDaPalavra = document.querySelectorAll(`[data-palavra="${ordem}"]`);
     console.log(`Ordem: ${ordem}`);
 
@@ -37,17 +39,43 @@ function tentarPalavra() {
         console.log(palavraFormada)
         palavraFormada = [];
         listaLetras = [];
+        mensagemDeRetornoPadrao("Palavra inválida.");
         return;
     } else {
-        ordem += 1;
         if (palavraFormada == palavraSorteada) {
             console.log('Você acertou!');
-        } else {
-            console.log('Você errou!');
-        }
+            switch (ordem) {
+                case 1:
+                    mensagemDeRetornoPadrao("Extraordinário!!!");
+                    break;
+                case 2:
+                    mensagemDeRetornoPadrao("Fantástico!!!");
+                    break;
+                case 3:
+                    mensagemDeRetornoPadrao("Genial!");
+                    break;
+                case 4:
+                    mensagemDeRetornoPadrao("Impressionante!");
+                    break;
+                case 5:
+                    mensagemDeRetornoPadrao("Bacana.");
+                    break;
+                case 6:
+                    mensagemDeRetornoPadrao("Ufa...");
+                    ordem = 5;
+                    break;
+                    default:
+            }
+        } 
+        
+        ordem += 1;
         palavraFormada = [];
         listaLetras = [];
     }  
+
+    if (ordem > 6) {
+        mensagemDeRetornoPadrao(`A palavra era: ${palavraSorteada}`);
+    }
 }
 
 function mudaCorDaLetraDoInput(ordemDaPalavra) {
@@ -105,6 +133,11 @@ function bloquearLiberarInput(ordemDaPalavra) {
         letraDaProximaTentativa.removeAttribute("disabled");
         letraDaProximaTentativa.classList.remove("bloqueado");
     });
+}
+
+function mensagemDeRetornoPadrao(texto) {
+    mensagemDeRetorno.innerText = texto;
+    mensagemDeRetorno.style.backgroundColor = "#367cec";
 }
 
 document.addEventListener("keypress", function(evento) {

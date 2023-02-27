@@ -27,6 +27,14 @@ Projeto inspirado nos jogos [Palavra do Dia](https://palavra-do-dia.pt/) e [Term
 - [X] Criar um teclado virtual;
     - [X] Mostrar quais letras já/não foram utilizadas indicadas pelas mesmas cores;
     - [ ] Ativar a função do botão para inserir a letra nos inputs; 
+- [X] Informar ao usuário as seguintes situações:
+    - [x] Palavra inválida;
+    - [x] Extraordinário para acerto na 1ª tentativa;
+    - [x] Fantástico para acerto na 2ª tentativa;
+    - [x] Genial para acerto na 3ª tentativa;
+    - [x] Impressionante para acerto na 4ª tentativa;
+    - [x] Bacana para acerto na 5ª tentativa;
+    - [x] Ufa! para acerto na 6ª tentativa;
 - [ ] Após 6 palavras erradas, o jogo acaba e é mostrado a palavra do dia na tela;
 - [ ] Sortear uma palavra aleatoriamente a cada 24 horas;
 - [ ] Criar modal com histórico de acertos e erros;

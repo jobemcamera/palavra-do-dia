@@ -3,6 +3,7 @@ main {
     display: flex;
     align-items: center;
     justify-content: center;
+    position: relative;
 }
 
 .palavra__container {
@@ -72,4 +73,18 @@ input:focus {
     to {
         transform: translateY(-5px);
     }
+}
+
+.palavra__retorno {
+    display: flex;
+    justify-content: center;
+    padding: 2em 0;
+}
+
+.palavra__retorno--mensagem {
+    border: none;
+    border-radius: 5px;
+    position: absolute;
+    padding: 1em;
+    top: 1em;
 }
