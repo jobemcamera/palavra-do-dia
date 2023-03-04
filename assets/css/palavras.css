@@ -51,28 +51,38 @@ input:focus {
 .certo {
     background-color: var(--cor-fundo-certo) !important; 
     border-color: var(--cor-fundo-certo) !important;
-    animation: go-back 0.7s; 
+    /* -webkit-animation: rotacionar 0.8s normal linear; */
+    animation: rotacionar 0.6s linear;
 }
 
 .errado {
     background-color: var(--cor-fundo-errado) !important;
     border-color: var(--cor-fundo-errado) !important;
-    animation: go-back 0.7s; 
+    animation: rotacionar 0.6s linear;
 }
 
 .ausente {
     background-color: var(--cor-fundo-ausente) !important;
     border-color: var(--cor-fundo-ausente) !important;
-    animation: go-back 0.7s; 
+    animation: rotacionar 0.6s linear;
 }
 
-@keyframes go-back {
-    from {
-        transform: translateY(0px);
-    }
-    to {
-        transform: translateY(-5px);
-    }
+.invalido {
+    animation: tremer 0.4s;   
+}
+
+@keyframes tremer {
+    0% { transform: translateX(0px);}
+    25% { transform: translateX(-5px);}
+    50% { transform: translateX(0px);}
+    75% { transform: translateX(5px);}
+    100% { transform: translateX(0px);}
+}
+
+@keyframes rotacionar {
+    0% { transform: rotateY(0deg); }
+
+    100% { transform: rotateY(360deg); }
 }
 
 .palavra__retorno {
