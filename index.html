@@ -10,112 +10,149 @@
     <link rel="stylesheet" href="assets/css/palavras.css">
     <link rel="stylesheet" href="assets/css/teclado.css">
     <link rel="stylesheet" href="assets/css/rodape.css">
+    <link rel="stylesheet" href="assets/css/modal-duvidas.css">
+    <script src="https://kit.fontawesome.com/6716068f67.js" crossorigin="anonymous"></script>
     <title>Acerte a Palavra</title>
 </head>
-<header>
-    <h1 class="cabecalho__titulo">Acerte a Palavra</h1>
-</header>
-<main>
-    <div class="palavra">
-        <div class="palavra__retorno">
-            <span class="palavra__retorno--mensagem"></span>
+<body>
+    <div id="opacidade" class="escondido"></div>
+    <header>
+        <i class="fa-solid fa-question" id="botao-modal-duvidas"></i>
+        <h1 class="cabecalho__titulo">Acerte a Palavra</h1>
+        <i class="fa-solid fa-chart-simple"></i>
+    </header>
+    <main>
+        <div class="palavra">
+            <div class="palavra__retorno">
+                <span class="palavra__retorno--mensagem"></span>
+            </div>
+            <div class="palavra__container">
+                <div class="palavra__inputs">
+                    <input type="text" class="letra primeira-palavra" data-palavra="1" maxlength="1">
+                    <input type="text" class="letra primeira-palavra" data-palavra="1" maxlength="1">
+                    <input type="text" class="letra primeira-palavra" data-palavra="1" maxlength="1">
+                    <input type="text" class="letra primeira-palavra" data-palavra="1" maxlength="1">
+                    <input type="text" class="letra primeira-palavra" data-palavra="1" maxlength="1">
+                </div>
+                <div class="palavra__inputs">
+                    <input type="text" class="letra bloqueado segunda-palavra" data-palavra="2" disabled="true" maxlength="1">
+                    <input type="text" class="letra bloqueado segunda-palavra" data-palavra="2" disabled="true" maxlength="1">
+                    <input type="text" class="letra bloqueado segunda-palavra" data-palavra="2" disabled="true" maxlength="1">
+                    <input type="text" class="letra bloqueado segunda-palavra" data-palavra="2" disabled="true" maxlength="1">
+                    <input type="text" class="letra bloqueado segunda-palavra" data-palavra="2" disabled="true" maxlength="1">
+                </div>
+                <div class="palavra__inputs">
+                    <input type="text" class="letra bloqueado terceira-palavra" data-palavra="3" disabled="true" maxlength="1">
+                    <input type="text" class="letra bloqueado terceira-palavra" data-palavra="3" disabled="true" maxlength="1">
+                    <input type="text" class="letra bloqueado terceira-palavra" data-palavra="3" disabled="true" maxlength="1">
+                    <input type="text" class="letra bloqueado terceira-palavra" data-palavra="3" disabled="true" maxlength="1">
+                    <input type="text" class="letra bloqueado terceira-palavra" data-palavra="3" disabled="true" maxlength="1">
+                </div>
+                <div class="palavra__inputs">
+                    <input type="text" class="letra bloqueado quarta-palavra" data-palavra="4" disabled="true" maxlength="1">
+                    <input type="text" class="letra bloqueado quarta-palavra" data-palavra="4" disabled="true" maxlength="1">
+                    <input type="text" class="letra bloqueado quarta-palavra" data-palavra="4" disabled="true" maxlength="1">
+                    <input type="text" class="letra bloqueado quarta-palavra" data-palavra="4" disabled="true" maxlength="1">
+                    <input type="text" class="letra bloqueado quarta-palavra" data-palavra="4" disabled="true" maxlength="1">
+                </div>
+                <div class="palavra__inputs">
+                    <input type="text" class="letra bloqueado quinta-palavra" data-palavra="5" disabled="true" maxlength="1">
+                    <input type="text" class="letra bloqueado quinta-palavra" data-palavra="5" disabled="true" maxlength="1">
+                    <input type="text" class="letra bloqueado quinta-palavra" data-palavra="5" disabled="true" maxlength="1">
+                    <input type="text" class="letra bloqueado quinta-palavra" data-palavra="5" disabled="true" maxlength="1">
+                    <input type="text" class="letra bloqueado quinta-palavra" data-palavra="5" disabled="true" maxlength="1">
+                </div>
+                <div class="palavra__inputs">
+                    <input type="text" class="letra bloqueado sexta-palavra" data-palavra="6" disabled="true" maxlength="1">
+                    <input type="text" class="letra bloqueado sexta-palavra" data-palavra="6" disabled="true" maxlength="1">
+                    <input type="text" class="letra bloqueado sexta-palavra" data-palavra="6" disabled="true" maxlength="1">
+                    <input type="text" class="letra bloqueado sexta-palavra" data-palavra="6" disabled="true" maxlength="1">
+                    <input type="text" class="letra bloqueado sexta-palavra" data-palavra="6" disabled="true" maxlength="1">
+                </div>
+            </div>
+            <div class="reiniciar__partida">
+                <button class="reiniciar__partida--botao bloqueado" data-jogar disabled="true">Novo Jogo</button>
+            </div>
         </div>
-        <div class="palavra__container">
-            <div class="palavra__inputs">
-                <input type="text" class="letra primeira-palavra" data-palavra="1" maxlength="1">
-                <input type="text" class="letra primeira-palavra" data-palavra="1" maxlength="1">
-                <input type="text" class="letra primeira-palavra" data-palavra="1" maxlength="1">
-                <input type="text" class="letra primeira-palavra" data-palavra="1" maxlength="1">
-                <input type="text" class="letra primeira-palavra" data-palavra="1" maxlength="1">
+    </main>
+    <section class="teclado">
+        <div class="teclado__container">
+            <div class="teclado__container--linha">
+                <button data-tecla="q" class="teclado__botao" tabindex="-1">Q</button>
+                <button data-tecla="w" class="teclado__botao" tabindex="-1">W</button>
+                <button data-tecla="e" class="teclado__botao" tabindex="-1">E</button>
+                <button data-tecla="r" class="teclado__botao" tabindex="-1">R</button>
+                <button data-tecla="t" class="teclado__botao" tabindex="-1">T</button>
+                <button data-tecla="y" class="teclado__botao" tabindex="-1">Y</button>
+                <button data-tecla="u" class="teclado__botao" tabindex="-1">U</button>
+                <button data-tecla="i" class="teclado__botao" tabindex="-1">I</button>
+                <button data-tecla="o" class="teclado__botao" tabindex="-1">O</button>
+                <button data-tecla="p" class="teclado__botao" tabindex="-1">P</button>
             </div>
-            <div class="palavra__inputs">
-                <input type="text" class="letra bloqueado segunda-palavra" data-palavra="2" disabled="true" maxlength="1">
-                <input type="text" class="letra bloqueado segunda-palavra" data-palavra="2" disabled="true" maxlength="1">
-                <input type="text" class="letra bloqueado segunda-palavra" data-palavra="2" disabled="true" maxlength="1">
-                <input type="text" class="letra bloqueado segunda-palavra" data-palavra="2" disabled="true" maxlength="1">
-                <input type="text" class="letra bloqueado segunda-palavra" data-palavra="2" disabled="true" maxlength="1">
+            <div class="teclado__container--linha">
+                <button data-tecla="a" class="teclado__botao" tabindex="-1">A</button>
+                <button data-tecla="s" class="teclado__botao" tabindex="-1">S</button>
+                <button data-tecla="d" class="teclado__botao" tabindex="-1">D</button>
+                <button data-tecla="f" class="teclado__botao" tabindex="-1">F</button>
+                <button data-tecla="g" class="teclado__botao" tabindex="-1">G</button>
+                <button data-tecla="h" class="teclado__botao" tabindex="-1">H</button>
+                <button data-tecla="j" class="teclado__botao" tabindex="-1">J</button>
+                <button data-tecla="k" class="teclado__botao" tabindex="-1">K</button>
+                <button data-tecla="l" class="teclado__botao" tabindex="-1">L</button>
             </div>
-            <div class="palavra__inputs">
-                <input type="text" class="letra bloqueado terceira-palavra" data-palavra="3" disabled="true" maxlength="1">
-                <input type="text" class="letra bloqueado terceira-palavra" data-palavra="3" disabled="true" maxlength="1">
-                <input type="text" class="letra bloqueado terceira-palavra" data-palavra="3" disabled="true" maxlength="1">
-                <input type="text" class="letra bloqueado terceira-palavra" data-palavra="3" disabled="true" maxlength="1">
-                <input type="text" class="letra bloqueado terceira-palavra" data-palavra="3" disabled="true" maxlength="1">
-            </div>
-            <div class="palavra__inputs">
-                <input type="text" class="letra bloqueado quarta-palavra" data-palavra="4" disabled="true" maxlength="1">
-                <input type="text" class="letra bloqueado quarta-palavra" data-palavra="4" disabled="true" maxlength="1">
-                <input type="text" class="letra bloqueado quarta-palavra" data-palavra="4" disabled="true" maxlength="1">
-                <input type="text" class="letra bloqueado quarta-palavra" data-palavra="4" disabled="true" maxlength="1">
-                <input type="text" class="letra bloqueado quarta-palavra" data-palavra="4" disabled="true" maxlength="1">
-            </div>
-            <div class="palavra__inputs">
-                <input type="text" class="letra bloqueado quinta-palavra" data-palavra="5" disabled="true" maxlength="1">
-                <input type="text" class="letra bloqueado quinta-palavra" data-palavra="5" disabled="true" maxlength="1">
-                <input type="text" class="letra bloqueado quinta-palavra" data-palavra="5" disabled="true" maxlength="1">
-                <input type="text" class="letra bloqueado quinta-palavra" data-palavra="5" disabled="true" maxlength="1">
-                <input type="text" class="letra bloqueado quinta-palavra" data-palavra="5" disabled="true" maxlength="1">
-            </div>
-            <div class="palavra__inputs">
-                <input type="text" class="letra bloqueado sexta-palavra" data-palavra="6" disabled="true" maxlength="1">
-                <input type="text" class="letra bloqueado sexta-palavra" data-palavra="6" disabled="true" maxlength="1">
-                <input type="text" class="letra bloqueado sexta-palavra" data-palavra="6" disabled="true" maxlength="1">
-                <input type="text" class="letra bloqueado sexta-palavra" data-palavra="6" disabled="true" maxlength="1">
-                <input type="text" class="letra bloqueado sexta-palavra" data-palavra="6" disabled="true" maxlength="1">
+            <div class="teclado__container--linha">
+                <button data-tecla="z" class="teclado__botao" tabindex="-1">Z</button>
+                <button data-tecla="x" class="teclado__botao" tabindex="-1">X</button>
+                <button data-tecla="c" class="teclado__botao" tabindex="-1">C</button>
+                <button data-tecla="v" class="teclado__botao" tabindex="-1">V</button>
+                <button data-tecla="b" class="teclado__botao" tabindex="-1">B</button>
+                <button data-tecla="n" class="teclado__botao" tabindex="-1">N</button>
+                <button data-tecla="m" class="teclado__botao" tabindex="-1">M</button>
             </div>
         </div>
-        <div class="reiniciar__partida">
-            <button class="reiniciar__partida--botao bloqueado" data-jogar disabled="true">Jogar novamente</button>
+    </section>
+    <footer class="rodape">
+        <div class="rodape__container">
+            <p class="rodape__texto">Desenvolvido por Jobe Camera</p>
+            <p class="rodape__texto">Inspirado nos jogos <a href="https://palavra-do-dia.pt/">Palavra do Dia</a> e <a href="https://term.ooo/">Termo</a>.</p>
         </div>
+    </footer>
+
+    <!--MODAL DÚVIDAS-->
+    <div class="escondido" id="modal-duvidas">
+        <p class="modal__duvidas--texto">Descubra a palavra certa em 6 tentativas. Digite as letras que formam a palavra e tecle ENTER para testar.</p>
+        <div class="letras__exemplo">
+            <input type="text" class="letra certo" disabled="true" value="F">
+            <input type="text" class="letra" disabled="true" value="E">
+            <input type="text" class="letra" disabled="true" value="S">
+            <input type="text" class="letra" disabled="true" value="T">
+            <input type="text" class="letra" disabled="true" value="A">
+        </div>
+        <p class="modal__duvidas--texto">A letra <input type="text" class="letra certo" disabled="true" value="F"> faz parte da palavra e está na posição certa.</p>
+        <div class="letras__exemplo">
+            <input type="text" class="letra" disabled="true" value="T">
+            <input type="text" class="letra" disabled="true" value="R">
+            <input type="text" class="letra" disabled="true" value="U">
+            <input type="text" class="letra errado" disabled="true" value="C">
+            <input type="text" class="letra" disabled="true" value="O">
+        </div>
+        <p class="modal__duvidas--texto">A letra <input type="text" class="letra errado" disabled="true" value="C"> faz parte da palavra mas está na posição errada.</p>
+        <div class="letras__exemplo">
+            <input type="text" class="letra" disabled="true" value="G">
+            <input type="text" class="letra" disabled="true" value="A">
+            <input type="text" class="letra ausente" disabled="true" value="S">
+            <input type="text" class="letra" disabled="true" value="T">
+            <input type="text" class="letra" disabled="true" value="A">
+        </div>
+        <p class="modal__duvidas--texto">A letra <input type="text" class="letra ausente" disabled="true" value="S"> não faz parte da palavra.</p><br>
+        <p class="modal__duvidas--texto">Não é necessário colocar acentuação nas letras.</p><br>
+        <p class="modal__duvidas--texto">Após acertar a palavra ou se acabarem as tentativas, você poderá clicar em "NOVO JOGO".</p>
     </div>
-</main>
-<section class="teclado">
-    <div class="teclado__container">
-        <div class="teclado__container--linha">
-            <button data-tecla="q" class="teclado__botao" tabindex="-1">Q</button>
-            <button data-tecla="w" class="teclado__botao" tabindex="-1">W</button>
-            <button data-tecla="e" class="teclado__botao" tabindex="-1">E</button>
-            <button data-tecla="r" class="teclado__botao" tabindex="-1">R</button>
-            <button data-tecla="t" class="teclado__botao" tabindex="-1">T</button>
-            <button data-tecla="y" class="teclado__botao" tabindex="-1">Y</button>
-            <button data-tecla="u" class="teclado__botao" tabindex="-1">U</button>
-            <button data-tecla="i" class="teclado__botao" tabindex="-1">I</button>
-            <button data-tecla="o" class="teclado__botao" tabindex="-1">O</button>
-            <button data-tecla="p" class="teclado__botao" tabindex="-1">P</button>
-        </div>
-        <div class="teclado__container--linha">
-            <button data-tecla="a" class="teclado__botao" tabindex="-1">A</button>
-            <button data-tecla="s" class="teclado__botao" tabindex="-1">S</button>
-            <button data-tecla="d" class="teclado__botao" tabindex="-1">D</button>
-            <button data-tecla="f" class="teclado__botao" tabindex="-1">F</button>
-            <button data-tecla="g" class="teclado__botao" tabindex="-1">G</button>
-            <button data-tecla="h" class="teclado__botao" tabindex="-1">H</button>
-            <button data-tecla="j" class="teclado__botao" tabindex="-1">J</button>
-            <button data-tecla="k" class="teclado__botao" tabindex="-1">K</button>
-            <button data-tecla="l" class="teclado__botao" tabindex="-1">L</button>
-        </div>
-        <div class="teclado__container--linha">
-            <button data-tecla="z" class="teclado__botao" tabindex="-1">Z</button>
-            <button data-tecla="x" class="teclado__botao" tabindex="-1">X</button>
-            <button data-tecla="c" class="teclado__botao" tabindex="-1">C</button>
-            <button data-tecla="v" class="teclado__botao" tabindex="-1">V</button>
-            <button data-tecla="b" class="teclado__botao" tabindex="-1">B</button>
-            <button data-tecla="n" class="teclado__botao" tabindex="-1">N</button>
-            <button data-tecla="m" class="teclado__botao" tabindex="-1">M</button>
-        </div>
-    </div>
-</section>
-<footer class="rodape">
-    <div class="rodape__container">
-        <p class="rodape__texto">Desenvolvido por Jobe Camera</p>
-        <p class="rodape__texto">Inspirado nos jogos <a href="https://palavra-do-dia.pt/">Palavra do Dia</a> e <a href="https://term.ooo/">Termo</a>.</p>
-    </div>
-</footer>
-<script src="assets/app/listaDePalavras.js" type="module"></script>
-<script src="assets/app/sortearPalavra.js" type="module"></script>
-<script src="assets/app/main.js" type="module"></script>
-<script src="assets/app/caracteres.js" type="module"></script>
-<body>  
-    
+
+    <script src="assets/app/listaDePalavras.js" type="module"></script>
+    <script src="assets/app/sortearPalavra.js" type="module"></script>
+    <script src="assets/app/main.js" type="module"></script>
+    <script src="assets/app/caracteres.js" type="module"></script>
+    <script src="assets/app/modal.js"></script>   
 </body>
 </html>

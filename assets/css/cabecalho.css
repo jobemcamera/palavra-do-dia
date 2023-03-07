@@ -1,8 +1,23 @@
 header {
     height: 10vh;
+    max-width: 720px;
+    margin: 0 auto;
     display: flex;
     align-items: center;
-    justify-content: center;
+    align-items: center;
+    justify-content: space-evenly;
+}
+
+.cabecalho__titulo {
+    letter-spacing: 2px;
+}
+
+.fa-solid {
+    font-size: var(--fonte-tamanho-titulo);
+    background-color: var(--cor-fundo-input);
+    border: solid 2px var(--cor-texto);
+    padding: 0.25em;
+    cursor: pointer;
 }
 
 .cabecalho__titulo {

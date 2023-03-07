@@ -10,10 +10,10 @@ const mensagemDeRetorno = document.querySelector(".palavra__retorno--mensagem");
 const botaoJogarNovamente = document.querySelector("[data-jogar]");
 
 botaoJogarNovamente.addEventListener("click", () => {
-    palavraSorteada = sortearPalavra();
+    ordem = 1;
     mensagemDeRetornoPadrao("");
     mensagemDeRetorno.style.backgroundColor = "transparent"; 
-    ordem = 1;
+    palavraSorteada = sortearPalavra();
     jogarNovamente("bloquear");
     novoJogo();
 });
@@ -91,7 +91,7 @@ function tentarPalavra() {
     }  
 
     if (ordem > 6) {
-        mensagemDeRetornoPadrao(`A palavra era: ${palavraSorteada}`);
+        mensagemDeRetornoPadrao(`A palavra era: ${palavraSorteada.toUpperCase()}`);
         jogarNovamente("desbloquear");
     }
 }

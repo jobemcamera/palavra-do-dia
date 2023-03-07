@@ -39,6 +39,7 @@ main {
     background-color: var(--cor-borda-input-padrao);
     color: var(--cor-texto);
     font-size: 16px;
+    text-transform: uppercase;
 }
 
 .palavra__container {

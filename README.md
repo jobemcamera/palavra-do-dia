@@ -37,10 +37,11 @@ Projeto inspirado nos jogos [Palavra do Dia](https://palavra-do-dia.pt/) e [Term
     - [X] Ufa! para acerto na 6ª tentativa;
 - [X] Após 6 palavras erradas, o jogo acaba e é mostrado a palavra do dia na tela;
 - [X] Botão para jogar novamente;
-- [ ] Criar modal com histórico de acertos e erros;
+- [X] Criar modal com informações de como jogar.
 
 
 - ## Extra
 
 - [ ] Sortear uma palavra aleatoriamente a cada 24 horas;
 - [ ] Salvar informações dos inputs no localStorage;
+- [ ] Criar modal com histórico de acertos e erros;
