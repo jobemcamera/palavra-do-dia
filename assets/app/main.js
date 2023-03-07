@@ -3,13 +3,23 @@ import { sortearPalavra } from "./sortearPalavra.js";
 
 let palavraFormada = [];
 let listaLetras = [];
-let ordem = 1;
-const palavraSorteada = sortearPalavra();
-const tecladoBotao = document.querySelectorAll('[data-tecla]');
-const mensagemDeRetorno = document.querySelector('.palavra__retorno--mensagem');
+export let ordem = 1;
+let palavraSorteada = sortearPalavra();  
+const tecladoBotao = document.querySelectorAll("[data-tecla]");
+const mensagemDeRetorno = document.querySelector(".palavra__retorno--mensagem");
+const botaoJogarNovamente = document.querySelector("[data-jogar]");
+
+botaoJogarNovamente.addEventListener("click", () => {
+    palavraSorteada = sortearPalavra();
+    mensagemDeRetornoPadrao("");
+    mensagemDeRetorno.style.backgroundColor = "transparent"; 
+    ordem = 1;
+    jogarNovamente("bloquear");
+    novoJogo();
+});
 
 function tentarPalavra() {
-    mensagemDeRetornoPadrao('');
+    mensagemDeRetornoPadrao("");
     mensagemDeRetorno.style.backgroundColor = "transparent";
     const ordemDaPalavra = document.querySelectorAll(`[data-palavra="${ordem}"]`);
     console.log(`Ordem: ${ordem}`);
@@ -37,6 +47,7 @@ function tentarPalavra() {
     if (palavraFormada.length < 5 || (listaDePalavrasSemAcento.includes(listaLetras.join('')) == false)) {
         console.log(listaDePalavrasSemAcento.includes(listaLetras.join('')))
         console.log(palavraFormada)
+
         palavraFormada = [];
         listaLetras = [];
         mensagemDeRetornoPadrao("Palavra inválida.");
@@ -47,21 +58,27 @@ function tentarPalavra() {
             switch (ordem) {
                 case 1:
                     mensagemDeRetornoPadrao("Extraordinário!!!");
+                    jogarNovamente("desbloquear");
                     break;
                 case 2:
                     mensagemDeRetornoPadrao("Fantástico!!!");
+                    jogarNovamente("desbloquear");
                     break;
                 case 3:
                     mensagemDeRetornoPadrao("Genial!");
+                    jogarNovamente("desbloquear");
                     break;
                 case 4:
                     mensagemDeRetornoPadrao("Impressionante!");
+                    jogarNovamente("desbloquear");
                     break;
                 case 5:
                     mensagemDeRetornoPadrao("Bacana.");
+                    jogarNovamente("desbloquear");
                     break;
                 case 6:
                     mensagemDeRetornoPadrao("Ufa...");
+                    jogarNovamente("desbloquear");
                     ordem = 5;
                     break;
                     default:
@@ -75,6 +92,7 @@ function tentarPalavra() {
 
     if (ordem > 6) {
         mensagemDeRetornoPadrao(`A palavra era: ${palavraSorteada}`);
+        jogarNovamente("desbloquear");
     }
 }
 
@@ -138,6 +156,41 @@ function bloquearLiberarInput(ordemDaPalavra) {
 function mensagemDeRetornoPadrao(texto) {
     mensagemDeRetorno.innerText = texto;
     mensagemDeRetorno.style.backgroundColor = "#367cec";
+}
+
+function jogarNovamente(acao) {
+    if (acao == "bloquear") {
+        botaoJogarNovamente.setAttribute("disabled", "disabled");
+        botaoJogarNovamente.classList.add("bloqueado");
+        botaoJogarNovamente.style.cursor = "default";
+    } else if (acao == "desbloquear") {
+        botaoJogarNovamente.removeAttribute("disabled");
+        botaoJogarNovamente.classList.remove("bloqueado");
+        botaoJogarNovamente.style.cursor = "pointer";
+    }
+}
+
+function novoJogo() {
+    document.querySelectorAll("[data-palavra]").forEach((letra, posicao) => {
+        letra.value = "";
+        letra.classList.remove("certo");
+        letra.classList.remove("errado");
+        letra.classList.remove("ausente");
+        if (posicao <= 4) {
+            letra.removeAttribute("disabled");
+        } else {
+            letra.classList.add("bloqueado");
+            letra.setAttribute("disabled", "disabled");
+        }
+    });
+
+    tecladoBotao.forEach(tecla => {
+        tecla.classList.remove("certo");
+        tecla.classList.remove("errado");
+        tecla.classList.remove("ausente");
+    });
+
+
 }
 
 document.addEventListener("keypress", function(evento) {
