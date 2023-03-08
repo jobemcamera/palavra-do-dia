@@ -47,26 +47,32 @@ function tentarPalavra() {
             switch (ordem) {
                 case 1:
                     mensagemDeRetornoPadrao("Extraordinário!!!");
+                    preencheInputsComPalavraComAcentos();
                     jogarNovamente("desbloquear");
                     break;
                 case 2:
                     mensagemDeRetornoPadrao("Fantástico!!!");
+                    preencheInputsComPalavraComAcentos();
                     jogarNovamente("desbloquear");
                     break;
                 case 3:
                     mensagemDeRetornoPadrao("Genial!");
+                    preencheInputsComPalavraComAcentos();
                     jogarNovamente("desbloquear");
                     break;
                 case 4:
                     mensagemDeRetornoPadrao("Impressionante!");
+                    preencheInputsComPalavraComAcentos();
                     jogarNovamente("desbloquear");
                     break;
                 case 5:
                     mensagemDeRetornoPadrao("Bacana.");
+                    preencheInputsComPalavraComAcentos();
                     jogarNovamente("desbloquear");
                     break;
                 case 6:
                     mensagemDeRetornoPadrao("Ufa...");
+                    preencheInputsComPalavraComAcentos();
                     jogarNovamente("desbloquear");
                     ordem = 5;
                     break;
@@ -107,6 +113,12 @@ function mudaCorDaLetraDoInput(ordemDaPalavra) {
             ordemDaPalavra[indice].classList.add("ausente");
             mudaCorDaLetraDoTeclado(letraTeste, "ausente");
         }
+    });
+}
+
+function preencheInputsComPalavraComAcentos() {
+    document.querySelectorAll(`[data-palavra="${ordem}"]`).forEach((letra, posicao) => {
+        letra.value = palavraSorteada[1][posicao];
     });
 }
 
