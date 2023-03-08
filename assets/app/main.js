@@ -9,15 +9,6 @@ const tecladoBotao = document.querySelectorAll("[data-tecla]");
 const mensagemDeRetorno = document.querySelector(".palavra__retorno--mensagem");
 const botaoJogarNovamente = document.querySelector("[data-jogar]");
 
-botaoJogarNovamente.addEventListener("click", () => {
-    ordem = 1;
-    mensagemDeRetornoPadrao("");
-    mensagemDeRetorno.style.backgroundColor = "transparent"; 
-    palavraSorteada = sortearPalavra();
-    jogarNovamente("bloquear");
-    novoJogo();
-});
-
 function tentarPalavra() {
     mensagemDeRetornoPadrao("");
     mensagemDeRetorno.style.backgroundColor = "transparent";
@@ -45,15 +36,13 @@ function tentarPalavra() {
 
     
     if (palavraFormada.length < 5 || (listaDePalavrasSemAcento.includes(listaLetras.join('')) == false)) {
-        console.log(listaDePalavrasSemAcento.includes(listaLetras.join('')))
         console.log(palavraFormada)
 
         palavraFormada = [];
         listaLetras = [];
         mensagemDeRetornoPadrao("Palavra inválida.");
-        return;
     } else {
-        if (palavraFormada == palavraSorteada) {
+        if (palavraFormada == palavraSorteada[0]) {
             console.log('Você acertou!');
             switch (ordem) {
                 case 1:
@@ -91,17 +80,27 @@ function tentarPalavra() {
     }  
 
     if (ordem > 6) {
-        mensagemDeRetornoPadrao(`A palavra era: ${palavraSorteada.toUpperCase()}`);
+        mensagemDeRetornoPadrao(`A palavra era: ${palavraSorteada[1].toUpperCase()}`); // imprime a palavra com acento
         jogarNovamente("desbloquear");
     }
 }
 
+// Botão NOVO JOGO ativo
+botaoJogarNovamente.addEventListener("click", () => {
+    ordem = 1;
+    mensagemDeRetornoPadrao("");
+    mensagemDeRetorno.style.backgroundColor = "transparent"; 
+    palavraSorteada = sortearPalavra();
+    jogarNovamente("bloquear");
+    novoJogo();
+});
+
 function mudaCorDaLetraDoInput(ordemDaPalavra) {
     listaLetras.forEach((letraTeste, indice) => {
-        if (letraTeste == palavraSorteada[indice]) {
+        if (letraTeste == palavraSorteada[0][indice]) {
             ordemDaPalavra[indice].classList.add("certo");
             mudaCorDaLetraDoTeclado(letraTeste, "certo"); 
-        } else if (palavraSorteada.includes(letraTeste)) {
+        } else if (palavraSorteada[0].includes(letraTeste)) {
             ordemDaPalavra[indice].classList.add("errado");
             mudaCorDaLetraDoTeclado(letraTeste, "errado");
         } else {
@@ -189,10 +188,9 @@ function novoJogo() {
         tecla.classList.remove("errado");
         tecla.classList.remove("ausente");
     });
-
-
 }
 
+// Evento da tecla ENTER
 document.addEventListener("keypress", function(evento) {
     if (evento.key == 'Enter') {
         tentarPalavra();
