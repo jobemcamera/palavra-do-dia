@@ -8,7 +8,8 @@
     z-index: 5;
 }
 
-#modal-duvidas {
+#modal-duvidas,
+#modal-estatisticas {
     position: fixed;
     left: 50%;
     top: 50%;
@@ -22,23 +23,55 @@
 }
 
 #opacidade, 
-#modal-duvidas {
+#modal-duvidas,
+#modal-estatisticas {
     transition: 0.5s;
     opacity: 1;
     pointer-events: all;
 }
 
 #opacidade.escondido,
-#modal-duvidas.escondido {
+#modal-duvidas.escondido,
+#modal-estatisticas.escondido {
     opacity: 0;
     pointer-events: none;
 }
 
-.modal__duvidas--texto {
+.modal__cabecalho {
+    display: flex;
+    justify-content: space-between;
+    padding-bottom: 2em;
+}
+
+.modal__titulo {
+    font-size: var(--fonte-tamanho-titulo);
+}
+
+.fa-xmark {
+    font-size: var(--fonte-tamanho-titulo);
+    cursor: pointer;
+}
+
+.modal__texto {
     line-height: 30px;    
     font-size: 20px;
 }
 
 .letras__exemplo {
     padding: 1em 0;
+}
+
+.tabela__estatisticas {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.tabela__estatisticas--linha {
+    height: 4em;
+}
+
+.tabela__estatisticas--coluna {
+    width: 9em;
+    text-align: center;
 }

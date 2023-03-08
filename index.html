@@ -10,16 +10,16 @@
     <link rel="stylesheet" href="assets/css/palavras.css">
     <link rel="stylesheet" href="assets/css/teclado.css">
     <link rel="stylesheet" href="assets/css/rodape.css">
-    <link rel="stylesheet" href="assets/css/modal-duvidas.css">
+    <link rel="stylesheet" href="assets/css/modal.css">
     <script src="https://kit.fontawesome.com/6716068f67.js" crossorigin="anonymous"></script>
     <title>Acerte a Palavra</title>
 </head>
 <body>
     <div id="opacidade" class="escondido"></div>
-    <header>
+    <header class="cabecalho">
         <i class="fa-solid fa-question" id="botao-modal-duvidas"></i>
         <h1 class="cabecalho__titulo">Acerte a Palavra</h1>
-        <i class="fa-solid fa-chart-simple"></i>
+        <i class="fa-solid fa-chart-simple" id="botao-modal-estatisticas"></i>
     </header>
     <main>
         <div class="palavra">
@@ -120,7 +120,11 @@
 
     <!--MODAL DÚVIDAS-->
     <div class="escondido" id="modal-duvidas">
-        <p class="modal__duvidas--texto">Descubra a palavra certa em 6 tentativas. Digite as letras que formam a palavra e tecle ENTER para testar.</p>
+        <header class="modal__cabecalho">
+            <h2 class="modal__titulo">Como jogar</h2>
+            <i class="fa-solid fa-xmark" id="botao-fechar-duvidas"></i>
+        </header>
+        <p class="modal__texto">Descubra a palavra certa em 6 tentativas. Digite as letras que formam a palavra e tecle ENTER para testar.</p>
         <div class="letras__exemplo">
             <input type="text" class="letra certo" disabled="true" value="F">
             <input type="text" class="letra" disabled="true" value="E">
@@ -128,7 +132,7 @@
             <input type="text" class="letra" disabled="true" value="T">
             <input type="text" class="letra" disabled="true" value="A">
         </div>
-        <p class="modal__duvidas--texto">A letra <input type="text" class="letra certo" disabled="true" value="F"> faz parte da palavra e está na posição certa.</p>
+        <p class="modal__texto">A letra <input type="text" class="letra certo" disabled="true" value="F"> faz parte da palavra e está na posição certa.</p>
         <div class="letras__exemplo">
             <input type="text" class="letra" disabled="true" value="T">
             <input type="text" class="letra" disabled="true" value="R">
@@ -136,7 +140,7 @@
             <input type="text" class="letra errado" disabled="true" value="C">
             <input type="text" class="letra" disabled="true" value="O">
         </div>
-        <p class="modal__duvidas--texto">A letra <input type="text" class="letra errado" disabled="true" value="C"> faz parte da palavra mas está na posição errada.</p>
+        <p class="modal__texto">A letra <input type="text" class="letra errado" disabled="true" value="C"> faz parte da palavra mas está na posição errada.</p>
         <div class="letras__exemplo">
             <input type="text" class="letra" disabled="true" value="G">
             <input type="text" class="letra" disabled="true" value="A">
@@ -144,9 +148,35 @@
             <input type="text" class="letra" disabled="true" value="T">
             <input type="text" class="letra" disabled="true" value="A">
         </div>
-        <p class="modal__duvidas--texto">A letra <input type="text" class="letra ausente" disabled="true" value="S"> não faz parte da palavra.</p><br>
-        <p class="modal__duvidas--texto">Não é necessário colocar acentuação nas letras.</p><br>
-        <p class="modal__duvidas--texto">Após acertar a palavra ou se acabarem as tentativas, você poderá clicar em "NOVO JOGO".</p>
+        <p class="modal__texto">A letra <input type="text" class="letra ausente" disabled="true" value="S"> não faz parte da palavra.</p><br>
+        <p class="modal__texto">Não é necessário colocar acentuação nas letras.</p><br>
+        <p class="modal__texto">Após acertar a palavra ou se acabarem as tentativas, você poderá clicar em "NOVO JOGO".</p>
+    </div>
+    <!--MODAL ESTATÍSTICAS-->
+    <div class="escondido" id="modal-estatisticas">
+        <header class="modal__cabecalho">
+            <h2 class="modal__titulo">Estatísticas</h2>
+            <i class="fa-solid fa-xmark" id="botao-fechar-estatisticas"></i>
+        </header>
+        <div class="modal__container">
+            <div class="progresso">
+                <table class="tabela__estatisticas">
+                    <tr class="tabela__estatisticas--linha">
+                        <td class="modal__texto tabela__estatisticas--coluna">Jogos</td>
+                        <td class="modal__texto tabela__estatisticas--coluna">de vitórias</td>
+                        <td class="modal__texto tabela__estatisticas--coluna">sequência de vitórias</td>
+                        <td class="modal__texto tabela__estatisticas--coluna">melhor sequência</td>
+                    </tr>
+                    <tr class="tabela__estatisticas--linha">
+                        <td class="modal__texto tabela__estatisticas--coluna">4</td>
+                        <td class="modal__texto tabela__estatisticas--coluna">100%</td>
+                        <td class="modal__texto tabela__estatisticas--coluna">2</td>
+                        <td class="modal__texto tabela__estatisticas--coluna">2</td>
+                    </tr>
+                </table>
+            </div>
+            <h2 class="modal__titulo">Tentativas</h2>
+        </div>
     </div>
 
     <script src="assets/app/listaDePalavras.js" type="module"></script>

@@ -1,4 +1,4 @@
-header {
+.cabecalho {
     height: 10vh;
     max-width: 720px;
     margin: 0 auto;
@@ -12,7 +12,8 @@ header {
     letter-spacing: 2px;
 }
 
-.fa-solid {
+.fa-chart-simple,
+.fa-question {
     font-size: var(--fonte-tamanho-titulo);
     background-color: var(--cor-fundo-input);
     border: solid 2px var(--cor-texto);
