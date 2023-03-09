@@ -1,8 +1,10 @@
 import { listaDePalavrasSemAcento } from "./listaDePalavras.js";
 import { sortearPalavra } from "./sortearPalavra.js";
+// import { posicaoDoInput } from "./caracteres.js";
 
 let palavraFormada = [];
 let listaLetras = [];
+// export let posicao = 0;
 export let ordem = 1;
 let palavraSorteada = sortearPalavra();  
 const tecladoBotao = document.querySelectorAll("[data-tecla]");
@@ -81,6 +83,7 @@ function tentarPalavra() {
         } 
         
         ordem += 1;
+        // posicaoDoInput = 0;
         palavraFormada = [];
         listaLetras = [];
     }  
@@ -208,3 +211,5 @@ document.addEventListener("keypress", function(evento) {
         tentarPalavra();
     }
 });
+
+// Para o botão ENTER do teclado numérico, basta criar o evento e chamar a função tentarPalavra()
