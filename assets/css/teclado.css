@@ -16,11 +16,20 @@
     gap: 0.5em;
 }
 
-.teclado__botao {
+.teclado__botao,
+.botao__especial {
     background-color: var(--cor-botao-letra);
     color: white;
     border: solid 2px var(--cor-borda-input-padrao);
-    width: 50px;
-    height: 50px;
     font-size: var(--fonte-tamanho-botao);
+    height: 50px;
 }
+
+.teclado__botao {
+    width: 50px;
+}
+
+.botao__especial {
+    width: 70px;
+}
+

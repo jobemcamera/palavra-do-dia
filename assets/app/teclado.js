@@ -1,16 +1,52 @@
-// import { ordem } from "./main.js"
+import { ordem } from "./main.js"
+import { avancaLetra } from "./caracteres.js";
 
-// const botaoTecla = document.querySelectorAll("[data-tecla]");
-// const ordemDaPalavra = document.querySelectorAll(`[data-palavra="${ordem}"]`);
+const botaoTecla = document.querySelectorAll("[data-tecla]");
+const botaoApagar = document.querySelector("[data-tecla-especial=apagar]");
+let posicaoDoInput = 0;
 
-// botaoTecla.forEach(tecla => {
-//     tecla.addEventListener("click", (evento) => {
-//         const letraDoTeclado = evento.target.dataset.tecla;
-//         console.log(letraDoTeclado)
+botaoTecla.forEach(teclaVirtural => {
+    teclaVirtural.addEventListener("click", (evento) => {
+        const letraDoTecladoVirtual = evento.target.dataset.tecla;
+        
+        let ordemDaPalavra = document.querySelectorAll(`[data-palavra="${ordem}"]`);
+        ordemDaPalavra.forEach(letra => {
+            if (posicaoDoInput <= 4) {
+                ordemDaPalavra[posicaoDoInput].value = letraDoTecladoVirtual;
+                if (avancaLetra(letra)) {
+                    letra.nextElementSibling.focus();
+                }
+            } else {
+                posicaoDoInput = 0;
+            }  
+        });
+        posicaoDoInput += 1;
+        if(posicaoDoInput == 5) {
+            posicaoDoInput = 4;
+        }
+    });
+});
 
-//         ordemDaPalavra.forEach(letra => {
-//             letra.value = letraDoTeclado
-//         });
+botaoApagar.addEventListener("click", () => {
+    let ordemDaPalavra = document.querySelectorAll(`[data-palavra="${ordem}"]`);
 
-//     });
-// });
+    if (ordemDaPalavra[posicaoDoInput].value == "") {   
+        if (posicaoDoInput > 0 && posicaoDoInput <= 4) {
+            ordemDaPalavra[posicaoDoInput].previousElementSibling.focus();
+            ordemDaPalavra[posicaoDoInput-1].value = "";
+            posicaoDoInput -= 1;
+        } else {
+            ordemDaPalavra[posicaoDoInput].value = "";
+            ordemDaPalavra[posicaoDoInput].focus();
+            posicaoDoInput = 0;
+        }
+    } else if (ordemDaPalavra[posicaoDoInput].value != "" && posicaoDoInput == 4) {
+        ordemDaPalavra[posicaoDoInput].value = "";
+        ordemDaPalavra[posicaoDoInput].focus();
+    }                  
+});
+
+// Função necessária para zerar o contador (main.js) quando a palavra for válida.
+export function zeraPosicaoDoInput() {
+    posicaoDoInput = 0;
+}
