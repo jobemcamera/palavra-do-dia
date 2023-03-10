@@ -1,6 +1,3 @@
-import { ordem } from "./main.js"
-// import { posicao } from "./main.js";
-
 const inputDaLetra = document.querySelectorAll('.letra');
 // Carregar a página com o foco no primeiro Input
 inputDaLetra[0].focus();

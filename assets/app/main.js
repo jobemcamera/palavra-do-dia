@@ -25,20 +25,15 @@ function tentarPalavra() {
                 mudaCorDaLetraDoInput(ordemDaPalavra);
                 bloquearLiberarInput(ordemDaPalavra);
                 mudaParaProximaTentativa();
-            } 
-                 
-        } else {
-           console.log(`index ${index} vazio`);
-        }                   
+            }            
+        }                  
     });
 
     palavraFormada = listaLetras.join('');
     console.log(`\n A palavra foramda é: ${palavraFormada}`);
 
-    
     if (palavraFormada.length < 5 || (listaDePalavrasSemAcento.includes(listaLetras.join('')) == false)) {
         console.log(palavraFormada)
-
         palavraFormada = [];
         listaLetras = [];
         mensagemDeRetornoPadrao("Palavra inválida.");
@@ -50,26 +45,31 @@ function tentarPalavra() {
                     mensagemDeRetornoPadrao("Extraordinário!!!");
                     preencheInputsComPalavraComAcentos();
                     jogarNovamente("desbloquear");
+                    bloquearInputs(ordem);
                     break;
                 case 2:
                     mensagemDeRetornoPadrao("Fantástico!!!");
                     preencheInputsComPalavraComAcentos();
                     jogarNovamente("desbloquear");
+                    bloquearInputs(ordem);
                     break;
                 case 3:
                     mensagemDeRetornoPadrao("Genial!");
                     preencheInputsComPalavraComAcentos();
                     jogarNovamente("desbloquear");
+                    bloquearInputs(ordem);
                     break;
                 case 4:
                     mensagemDeRetornoPadrao("Impressionante!");
                     preencheInputsComPalavraComAcentos();
                     jogarNovamente("desbloquear");
+                    bloquearInputs(ordem);
                     break;
                 case 5:
                     mensagemDeRetornoPadrao("Bacana.");
                     preencheInputsComPalavraComAcentos();
                     jogarNovamente("desbloquear");
+                    bloquearInputs(ordem);
                     break;
                 case 6:
                     mensagemDeRetornoPadrao("Ufa...");
@@ -154,6 +154,13 @@ function mudaParaProximaTentativa() {
     if((ordem + 1) <= 6) {
         document.querySelector(`[data-palavra="${ordem+1}"]`).focus();
     }
+}
+
+function bloquearInputs(ordem) {
+    document.querySelectorAll(`[data-palavra="${ordem+1}"]`).forEach(campo => {
+        campo.setAttribute("disabled", "disabled");
+        campo.classList.add("bloqueado");
+    });
 }
 
 function bloquearLiberarInput(ordemDaPalavra) {
