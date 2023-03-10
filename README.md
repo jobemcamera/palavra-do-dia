@@ -28,7 +28,7 @@ Projeto inspirado nos jogos [Palavra do Dia](https://palavra-do-dia.pt/) e [Term
     - [X] Mostrar quais letras já/não foram utilizadas indicadas pelas mesmas cores;
     - [X] Ativar a função do botão para inserir a letra nos inputs;
     - [X] Teclas APAGAR e ENVIAR;
-    - [ ] Permitir telcado virtual somente para versão mobile; 
+    - [X] Permitir telcado virtual somente para versão mobile/tablet; 
 - [X] Informar ao usuário as seguintes situações:
     - [X] Palavra inválida;
     - [X] Extraordinário para acerto na 1ª tentativa;

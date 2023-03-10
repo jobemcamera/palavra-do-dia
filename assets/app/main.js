@@ -218,5 +218,7 @@ document.addEventListener("keypress", function(evento) {
     }
 });
 
-// Evento da tecla ENTER do teclado virtual
-document.querySelector("[data-tecla-especial=enviar]").addEventListener("click", tentarPalavra);
+if (window.innerWidth < 768) {
+    // Evento da tecla ENTER do teclado virtual
+    document.querySelector("[data-tecla-especial=enviar]").addEventListener("click", tentarPalavra);
+}
