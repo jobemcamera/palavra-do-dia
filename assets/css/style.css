@@ -1,9 +1,13 @@
 @import url('https://fonts.googleapis.com/css2?family=Montserrat&display=swap');
 
 :root {
-    --fonte-tamanho-titulo: 30px;
+    --fonte-tamanho-titulo-desktop: 30px;
+    --fonte-tamanho-titulo-mobile: 25px;
+    --fonte-tamanho-texto-desktop: 18px;
+    --fonte-tamanho-texto-mobile: 16px;
+    --fonte-tamanho-botao-desktop: 20px;
+    --fonte-tamanho-botao-mobile: 18px;
     --fonte-tamanho-input: 40px;
-    --fonte-tamanho-botao: 20px;
     --cor-texto: white;
     --cor-borda-input-padrao: #367cec;
     --cor-borda-input-focus: white;

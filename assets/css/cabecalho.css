@@ -1,7 +1,6 @@
 .cabecalho {
-    height: 10vh;
     max-width: 720px;
-    margin: 0 auto;
+    margin: 1em auto;
     display: flex;
     align-items: center;
     align-items: center;
@@ -14,10 +13,10 @@
 
 .fa-chart-simple,
 .fa-question {
-    font-size: var(--fonte-tamanho-titulo);
+    font-size: 16px;
     background-color: var(--cor-fundo-input);
     border: solid 2px var(--cor-texto);
-    padding: 0.25em;
+    padding: 0.2em;
     cursor: pointer;
 }
 
@@ -25,6 +24,16 @@
     text-align: center;
     font-weight: bold;
     text-transform: uppercase;
-    font-size: var(--fonte-tamanho-titulo);
+    font-size: var(--fonte-tamanho-titulo-mobile);
     display: flex;
+}
+
+@media screen and (min-width: 768px) {
+    .cabecalho__titulo {
+        font-size: var(--fonte-tamanho-titulo-desktop);
+    }
+    .fa-chart-simple,
+    .fa-question {
+        font-size: var(--fonte-tamanho-titulo-desktop);
+    }
 }

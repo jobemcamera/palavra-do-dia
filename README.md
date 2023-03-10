@@ -40,7 +40,8 @@ Projeto inspirado nos jogos [Palavra do Dia](https://palavra-do-dia.pt/) e [Term
     - [X] Após o jogador acertar a palavra, é mostrada nos inputs a palavra correta com acento;
 - [X] Após 6 palavras erradas, o jogo acaba e é mostrado a palavra com acento na tela;
 - [X] Botão para jogar novamente;
-- [X] Criar modal com informações de como jogar.
+- [X] Criar modal com informações de como jogar;
+- [X] Criar responsividade versão mobile/tablet.
 
 
 - ## Extra

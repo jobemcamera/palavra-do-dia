@@ -16,8 +16,8 @@
     transform: translate(-50%, -50%);
     background-color: var(--cor-fundo-input-bloqueado);
     z-index: 10;
-    width: 600px;
-    max-width: 90%;
+    width: 400px;
+    max-width: 80%;
     padding: 2em;
     border-radius: 10px;
 }
@@ -44,17 +44,25 @@
 }
 
 .modal__titulo {
-    font-size: var(--fonte-tamanho-titulo);
+    font-size: var(--fonte-tamanho-titulo-mobile);
 }
 
 .fa-xmark {
-    font-size: var(--fonte-tamanho-titulo);
+    font-size: var(--fonte-tamanho-titulo-mobile);
     cursor: pointer;
 }
 
 .modal__texto {
     line-height: 30px;    
-    font-size: 20px;
+    font-size: var(--fonte-tamanho-texto-mobile);
+}
+
+.letra__modal {
+    width: 30px;
+    height: 30px;
+    font-size: var(--fonte-tamanho-texto-mobile);
+    text-align: center;
+    text-transform: uppercase;
 }
 
 .letras__exemplo {
@@ -74,4 +82,19 @@
 .tabela__estatisticas--coluna {
     width: 9em;
     text-align: center;
+}
+
+@media screen and (min-width: 768px) {
+    #modal-duvidas,
+    #modal-estatisticas {
+        width: 600px;
+    }
+    .letra__modal {
+        width: 40px;
+        height: 40px;
+        font-size: var(--fonte-tamanho-texto-desktop);
+    }
+    .modal__texto {
+        font-size: var(--fonte-tamanho-texto-desktop);
+    }
 }

@@ -1,19 +1,17 @@
-.teclado {
-    height: 30vh;
-}
-
 .teclado__container {
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    padding: 5em;
-    gap: 0.5em;
+    padding: 4em 0 2em 0;
+    margin: 0 auto;
+    text-align: center;
+    gap: 0.25em;
 }
 
 .teclado__container--linha {
     display: flex;
-    gap: 0.5em;
+    gap: 0.25em;
 }
 
 .teclado__botao,
@@ -21,15 +19,28 @@
     background-color: var(--cor-botao-letra);
     color: white;
     border: solid 2px var(--cor-borda-input-padrao);
-    font-size: var(--fonte-tamanho-botao);
+    font-size: var(--fonte-tamanho-botao-mobile);
     height: 50px;
 }
 
 .teclado__botao {
-    width: 50px;
+    width: 30px;
 }
 
 .botao__especial {
-    width: 70px;
+    width: 40px;
+}
+
+@media screen and (min-width: 768px) {
+    .teclado__botao {
+        width: 50px;
+    }
+    .botao__especial {
+        width: 70px;
+    }
+    .teclado__container,
+    .teclado__container--linha {
+        gap: 0.5em;
+    }
 }
 
