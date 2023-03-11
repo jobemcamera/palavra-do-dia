@@ -17,8 +17,9 @@
     background-color: var(--cor-fundo-input-bloqueado);
     z-index: 10;
     width: 400px;
-    max-width: 80%;
-    padding: 2em;
+    max-width: 75%;
+    max-height: 90%;
+    padding: 1.5em;
     border-radius: 10px;
 }
 
@@ -40,7 +41,7 @@
 .modal__cabecalho {
     display: flex;
     justify-content: space-between;
-    padding-bottom: 2em;
+    padding-bottom: 1.5em;
 }
 
 .modal__titulo {
@@ -53,7 +54,7 @@
 }
 
 .modal__texto {
-    line-height: 30px;    
+    line-height: 25px;    
     font-size: var(--fonte-tamanho-texto-mobile);
 }
 
@@ -67,6 +68,11 @@
 
 .letras__exemplo {
     padding: 1em 0;
+}
+
+a {
+    color: var(--cor-fundo-errado);
+    text-decoration: none;
 }
 
 /* ESTATÍSTICAS */
@@ -118,6 +124,10 @@
     #modal-duvidas,
     #modal-estatisticas {
         width: 600px;
+        padding: 2em;
+    }
+    .modal__cabecalho {
+        padding-bottom: 2em;
     }
     .letra__modal {
         width: 40px;
@@ -126,5 +136,6 @@
     }
     .modal__texto {
         font-size: var(--fonte-tamanho-texto-desktop);
+        line-height: 30px;    
     }
 }
