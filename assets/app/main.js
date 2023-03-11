@@ -7,9 +7,15 @@ import { abreModalEstatisticas } from "./modal.js";
 let palavraFormada = [];
 let listaLetras = [];
 export let ordem = 1;
-export let desempenho = [0,0,0,0,0,0,0,0,0,0]; // 1, 2, 3, 4, 5, 6, 0, sequencia de vitorias, ,maior sequencia;
-nsole.log(desempenhoDeJogos.vitorias)
-export let numeroDeJogos = 0;
+// export let desempenho = [0,0,0,0,0,0,0,0,0,0]; // 1, 2, 3, 4, 5, 6, 0, sequencia de vitorias, ,maior sequencia;
+// export let desempenho = {
+//     vitorias: [0,0,0,0,0,0],
+//     derrotas: [0],
+//     sequenciaDeVitorias: [0],
+//     maiorSequencia: [0]
+// }
+
+// export let numeroDeJogos = 0;
 let palavraSorteada = sortearPalavra();  
 const tecladoBotao = document.querySelectorAll("[data-tecla]");
 const botaoJogarNovamente = document.querySelector("[data-jogar]");
@@ -19,11 +25,11 @@ function tentarPalavra() {
     mensagemDeRetornoPadrao("");
     mensagemDeRetorno.style.backgroundColor = "transparent";
     const ordemDaPalavra = document.querySelectorAll(`[data-palavra="${ordem}"]`);
-    console.log(`Ordem: ${ordem}`);
+    // console.log(`Ordem: ${ordem}`);
 
     ordemDaPalavra.forEach((letra, index) => {
         if (letra.value != "") {
-            console.log(`index ${index} letra ${letra.value}`);
+            // console.log(`index ${index} letra ${letra.value}`);
             listaLetras.push(letra.value); 
             
             if (listaLetras.length == 5 && listaDePalavrasSemAcento.includes(listaLetras.join(''))) {
@@ -51,11 +57,11 @@ function tentarPalavra() {
                     preencheInputsComPalavraComAcentos();
                     jogarNovamente("desbloquear");
                     bloquearInputs(ordem);
-                    desempenho[0] ++;
-                    desempenho[7] ++;
-                    desempenho[8] = Math.max(desempenho[8], desempenho[7]);
-                    numeroDeJogos ++;
-                    atualizaPlacarDeTentativas();
+                    // desempenho.vitorias[0] ++;
+                    // desempenho.sequenciaDeVitorias[0] ++;
+                    // desempenho.maiorSequencia[0] = Math.max(desempenho.sequenciaDeVitorias[0], desempenho.maiorSequencia[0]);
+                    // numeroDeJogos ++;
+                    atualizaPlacarDeTentativas(0, null);
                     setTimeout(abreModalEstatisticas, 1000); 
                     break;
                 case 2:
@@ -63,11 +69,11 @@ function tentarPalavra() {
                     preencheInputsComPalavraComAcentos();
                     jogarNovamente("desbloquear");
                     bloquearInputs(ordem);
-                    desempenho[1] ++;
-                    desempenho[7] ++;
-                    desempenho[8] = Math.max(desempenho[8], desempenho[7]);
-                    numeroDeJogos ++;
-                    atualizaPlacarDeTentativas();
+                    // desempenho.vitorias[1] ++;
+                    // desempenho.sequenciaDeVitorias[0] ++;
+                    // desempenho.maiorSequencia[0] = Math.max(desempenho.sequenciaDeVitorias[0], desempenho.maiorSequencia[0]);
+                    // numeroDeJogos ++;
+                    atualizaPlacarDeTentativas(1, null);
                     setTimeout(abreModalEstatisticas, 1000); 
                     break;
                 case 3:
@@ -75,11 +81,11 @@ function tentarPalavra() {
                     preencheInputsComPalavraComAcentos();
                     jogarNovamente("desbloquear");
                     bloquearInputs(ordem);
-                    desempenho[2] ++;
-                    desempenho[7] ++;
-                    desempenho[8] = Math.max(desempenho[8], desempenho[7]);
-                    numeroDeJogos ++;
-                    atualizaPlacarDeTentativas();
+                    // desempenho.vitorias[2] ++;
+                    // desempenho.sequenciaDeVitorias[0] ++;
+                    // desempenho.maiorSequencia[0] = Math.max(desempenho.sequenciaDeVitorias[0], desempenho.maiorSequencia[0]);
+                    // numeroDeJogos ++;
+                    atualizaPlacarDeTentativas(2, null);
                     setTimeout(abreModalEstatisticas, 1000); 
                     break;
                 case 4:
@@ -87,11 +93,11 @@ function tentarPalavra() {
                     preencheInputsComPalavraComAcentos();
                     jogarNovamente("desbloquear");
                     bloquearInputs(ordem);
-                    desempenho[3] ++;
-                    desempenho[7] ++;
-                    desempenho[8] = Math.max(desempenho[8], desempenho[7]);
-                    numeroDeJogos ++;
-                    atualizaPlacarDeTentativas();
+                    // desempenho.vitorias[3] ++;
+                    // desempenho.sequenciaDeVitorias[0] ++;
+                    // desempenho.maiorSequencia[0] = Math.max(desempenho.sequenciaDeVitorias[0], desempenho.maiorSequencia[0]);
+                    // numeroDeJogos ++;
+                    atualizaPlacarDeTentativas(3, null);
                     setTimeout(abreModalEstatisticas, 1000); 
                     break;
                 case 5:
@@ -99,22 +105,22 @@ function tentarPalavra() {
                     preencheInputsComPalavraComAcentos();
                     jogarNovamente("desbloquear");
                     bloquearInputs(ordem);
-                    desempenho[4] ++;
-                    desempenho[7] ++;
-                    desempenho[8] = Math.max(desempenho[8], desempenho[7]);
-                    numeroDeJogos ++;
-                    atualizaPlacarDeTentativas();
+                    // desempenho.vitorias[4] ++;
+                    // desempenho.sequenciaDeVitorias[0] ++;
+                    // desempenho.maiorSequencia[0] = Math.max(desempenho.sequenciaDeVitorias[0], desempenho.maiorSequencia[0]);
+                    // numeroDeJogos ++;
+                    atualizaPlacarDeTentativas(4, null);
                     setTimeout(abreModalEstatisticas, 1000); 
                     break;
                 case 6:
                     mensagemDeRetornoPadrao("Ufa...");
                     preencheInputsComPalavraComAcentos();
                     jogarNovamente("desbloquear");
-                    desempenho[5] ++;
-                    desempenho[7] ++;
-                    desempenho[8] = Math.max(desempenho[8], desempenho[7]);
-                    numeroDeJogos ++;
-                    atualizaPlacarDeTentativas();
+                    // desempenho.vitorias[5] ++;
+                    // desempenho.sequenciaDeVitorias[0] ++;
+                    // desempenho.maiorSequencia[0] = Math.max(desempenho.sequenciaDeVitorias[0], desempenho.maiorSequencia[0]);
+                    // numeroDeJogos ++;
+                    atualizaPlacarDeTentativas(5, null);
                     setTimeout(abreModalEstatisticas, 1000); 
                     ordem = 5;
                     break;
@@ -131,12 +137,11 @@ function tentarPalavra() {
     if (ordem > 6) {
         mensagemDeRetornoPadrao(`A palavra era: ${palavraSorteada[1].toUpperCase()}`); // imprime a palavra com acento
         jogarNovamente("desbloquear");
-        desempenho[6] ++; // derrota
-        
-        console.log(Math.max(desempenho[8], desempenho[7]))
-        desempenho[7] = 0;
-        numeroDeJogos ++;
-        atualizaPlacarDeTentativas();
+        // desempenho.derrotas[0] ++; 
+        // console.log(Math.max(desempenho.sequenciaDeVitorias[0], desempenho.maiorSequencia[0]))
+        // desempenho.maiorSequencia[0] = 0;
+        // numeroDeJogos ++;
+        atualizaPlacarDeTentativas(null, 0);
         setTimeout(abreModalEstatisticas, 1000); 
     }
 }

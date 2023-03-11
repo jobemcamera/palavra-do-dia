@@ -1,5 +1,5 @@
-import { desempenho } from "./main.js";
-import { numeroDeJogos } from "./main.js";
+// import { desempenho } from "./main.js";
+// import { numeroDeJogos } from "./main.js";
 
 // -------------------------- MODAL DÚVIDAS --------------------------
 
@@ -35,16 +35,38 @@ export function abreModalEstatisticas() {
 // // ------------------------ ESTATÍSTICAS ------------------------
 let tamanhoDaBarra = 0;
 let numeroDeVitorias = 0;
+export let numeroDeJogos = 0;
+export let desempenho = {
+    vitorias: [0,0,0,0,0,0],
+    derrotas: [0],
+    sequenciaDeVitorias: [0],
+    maiorSequencia: [0]
+}
 
-export function atualizaPlacarDeTentativas() {
+export function atualizaPlacarDeTentativas(vitorias, derrotas) {
     const barraDesempenho = document.querySelectorAll("[data-desempenho]");
-    barraDesempenho.forEach((barra, indice) => {
-        if (indice >= 0 && indice < (desempenho.length - 4)) {
-            numeroDeVitorias += desempenho[indice];
+
+    if (vitorias != null) {
+        desempenho.vitorias[vitorias] ++;
+        desempenho.sequenciaDeVitorias[0] ++;
+        desempenho.maiorSequencia[0] = Math.max(desempenho.sequenciaDeVitorias[0], desempenho.maiorSequencia[0]);
+    } else if (derrotas != null) {
+        desempenho.derrotas[derrotas] ++;
+        desempenho.sequenciaDeVitorias[0] = 0;
+    }
+    numeroDeJogos ++;
+    
+
+    barraDesempenho.forEach((barra, indice) => {   
+        if (indice < 6) {
+            numeroDeVitorias += desempenho.vitorias[indice];
+            barra.innerHTML = desempenho.vitorias[indice];
+            tamanhoDaBarra = (desempenho.vitorias[indice] / numeroDeJogos) * 100;
+        } else {
+            barra.innerHTML = desempenho.derrotas[0];
+            tamanhoDaBarra = (desempenho.derrotas[0] / numeroDeJogos) * 100;
         }
-        barra.innerHTML = desempenho[indice];
-        tamanhoDaBarra = (desempenho[indice] / numeroDeJogos) * 100;
-        barra.style.width = `${tamanhoDaBarra}%`;
+        barra.style.width = `${tamanhoDaBarra}%`; 
     });
 
     const barraEstatisticas = document.querySelectorAll("[data-estatisticas]");
@@ -52,7 +74,8 @@ export function atualizaPlacarDeTentativas() {
     console.log(`numero de vitorias: ${numeroDeVitorias}`)
     barraEstatisticas[0].innerHTML = numeroDeJogos;
     barraEstatisticas[1].innerHTML = Math.ceil((numeroDeVitorias / numeroDeJogos) * 100) +"%";
-    barraEstatisticas[2].innerHTML = desempenho[7];
-    barraEstatisticas[3].innerHTML = desempenho[8];
+    barraEstatisticas[2].innerHTML = desempenho.sequenciaDeVitorias[0];
+    barraEstatisticas[3].innerHTML = desempenho.maiorSequencia[0];
+
     numeroDeVitorias = 0;
 }
