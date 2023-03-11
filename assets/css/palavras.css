@@ -17,7 +17,7 @@
     border: none;
     border-radius: 5px;
     position: absolute;
-    padding: 0.5em;
+    padding: 0.75em;
     top: 2em;
 }
 
@@ -26,13 +26,12 @@
 }
 
 .reiniciar__partida--botao {
-    padding: 0.5em;
+    padding: 0.75em;
     border: none;
     border-radius: 5px;
     background-color: var(--cor-borda-input-padrao);
     color: var(--cor-texto);
     font-size: var(--fonte-tamanho-texto-mobile);
-    /* text-transform: uppercase; */
 }
 
 .palavra__container {

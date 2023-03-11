@@ -165,19 +165,35 @@
                 <table class="tabela__estatisticas">
                     <tr class="tabela__estatisticas--linha">
                         <td class="modal__texto tabela__estatisticas--coluna">Jogos</td>
-                        <td class="modal__texto tabela__estatisticas--coluna">de vitórias</td>
+                        <td class="modal__texto tabela__estatisticas--coluna">vitórias</td>
                         <td class="modal__texto tabela__estatisticas--coluna">sequência de vitórias</td>
                         <td class="modal__texto tabela__estatisticas--coluna">melhor sequência</td>
                     </tr>
                     <tr class="tabela__estatisticas--linha">
-                        <td class="modal__texto tabela__estatisticas--coluna">4</td>
-                        <td class="modal__texto tabela__estatisticas--coluna">100%</td>
-                        <td class="modal__texto tabela__estatisticas--coluna">2</td>
-                        <td class="modal__texto tabela__estatisticas--coluna">2</td>
+                        <td class="modal__texto tabela__estatisticas--coluna" data-estatisticas="jogos"></td>
+                        <td class="modal__texto tabela__estatisticas--coluna" data-estatisticas="vitorias"></td>
+                        <td class="modal__texto tabela__estatisticas--coluna" data-estatisticas="sequencia"></td>
+                        <td class="modal__texto tabela__estatisticas--coluna" data-estatisticas="melhor"></td>
                     </tr>
                 </table>
             </div>
-            <h2 class="modal__titulo">Tentativas</h2>
+            <h2 class="modal__titulo">Desempenho</h2>
+            <div class="grafico__desempenho">
+                <p class="numero__desempenho">1</p>
+                <span class="barra__desempenho" data-desempenho="1"></span>
+                <p class="numero__desempenho">2</p>
+                <span class="barra__desempenho" data-desempenho="2"></span>
+                <p class="numero__desempenho">3</p>
+                <span class="barra__desempenho" data-desempenho="3"></span>
+                <p class="numero__desempenho">4</p>
+                <span class="barra__desempenho" data-desempenho="4"></span>
+                <p class="numero__desempenho">5</p>
+                <span class="barra__desempenho" data-desempenho="5"></span>
+                <p class="numero__desempenho">6</p>
+                <span class="barra__desempenho" data-desempenho="6"></span>
+                <p class="numero__desempenho"><i class="fa-solid fa-skull-crossbones"></i></p>
+                <span class="barra__desempenho" data-desempenho="0"></span>
+            </div>
         </div>
     </div>
 
@@ -186,6 +202,6 @@
     <script src="assets/app/main.js" type="module"></script>
     <script src="assets/app/caracteres.js" type="module"></script>
     <script src="assets/app/teclado.js" type="module"></script>
-    <script src="assets/app/modal.js"></script>   
+    <script src="assets/app/modal.js" type="module"></script>   
 </body>
 </html>

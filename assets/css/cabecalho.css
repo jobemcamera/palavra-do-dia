@@ -16,8 +16,15 @@
     font-size: 16px;
     background-color: var(--cor-fundo-input);
     border: solid 2px var(--cor-texto);
-    padding: 0.2em;
     cursor: pointer;
+}
+
+.fa-chart-simple {
+    padding: 0.2em 0.3em;
+}
+
+.fa-question {
+    padding: 0.2em 0.4em;
 }
 
 .cabecalho__titulo {
@@ -34,6 +41,6 @@
     }
     .fa-chart-simple,
     .fa-question {
-        font-size: var(--fonte-tamanho-titulo-desktop);
+        font-size: 20px;
     }
 }

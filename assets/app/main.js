@@ -1,14 +1,19 @@
 import { listaDePalavrasSemAcento } from "./listaDePalavras.js";
 import { sortearPalavra } from "./sortearPalavra.js";
 import { zeraPosicaoDoInput } from "./teclado.js";
+import { atualizaPlacarDeTentativas } from "./modal.js";
+import { abreModalEstatisticas } from "./modal.js";
 
 let palavraFormada = [];
 let listaLetras = [];
 export let ordem = 1;
+export let desempenho = [0,0,0,0,0,0,0,0,0,0]; // 1, 2, 3, 4, 5, 6, 0, sequencia de vitorias, ,maior sequencia;
+nsole.log(desempenhoDeJogos.vitorias)
+export let numeroDeJogos = 0;
 let palavraSorteada = sortearPalavra();  
 const tecladoBotao = document.querySelectorAll("[data-tecla]");
-const mensagemDeRetorno = document.querySelector(".palavra__retorno--mensagem");
 const botaoJogarNovamente = document.querySelector("[data-jogar]");
+const mensagemDeRetorno = document.querySelector(".palavra__retorno--mensagem");
 
 function tentarPalavra() {
     mensagemDeRetornoPadrao("");
@@ -46,42 +51,78 @@ function tentarPalavra() {
                     preencheInputsComPalavraComAcentos();
                     jogarNovamente("desbloquear");
                     bloquearInputs(ordem);
+                    desempenho[0] ++;
+                    desempenho[7] ++;
+                    desempenho[8] = Math.max(desempenho[8], desempenho[7]);
+                    numeroDeJogos ++;
+                    atualizaPlacarDeTentativas();
+                    setTimeout(abreModalEstatisticas, 1000); 
                     break;
                 case 2:
                     mensagemDeRetornoPadrao("Fantástico!!!");
                     preencheInputsComPalavraComAcentos();
                     jogarNovamente("desbloquear");
                     bloquearInputs(ordem);
+                    desempenho[1] ++;
+                    desempenho[7] ++;
+                    desempenho[8] = Math.max(desempenho[8], desempenho[7]);
+                    numeroDeJogos ++;
+                    atualizaPlacarDeTentativas();
+                    setTimeout(abreModalEstatisticas, 1000); 
                     break;
                 case 3:
                     mensagemDeRetornoPadrao("Genial!");
                     preencheInputsComPalavraComAcentos();
                     jogarNovamente("desbloquear");
                     bloquearInputs(ordem);
+                    desempenho[2] ++;
+                    desempenho[7] ++;
+                    desempenho[8] = Math.max(desempenho[8], desempenho[7]);
+                    numeroDeJogos ++;
+                    atualizaPlacarDeTentativas();
+                    setTimeout(abreModalEstatisticas, 1000); 
                     break;
                 case 4:
                     mensagemDeRetornoPadrao("Impressionante!");
                     preencheInputsComPalavraComAcentos();
                     jogarNovamente("desbloquear");
                     bloquearInputs(ordem);
+                    desempenho[3] ++;
+                    desempenho[7] ++;
+                    desempenho[8] = Math.max(desempenho[8], desempenho[7]);
+                    numeroDeJogos ++;
+                    atualizaPlacarDeTentativas();
+                    setTimeout(abreModalEstatisticas, 1000); 
                     break;
                 case 5:
                     mensagemDeRetornoPadrao("Bacana.");
                     preencheInputsComPalavraComAcentos();
                     jogarNovamente("desbloquear");
                     bloquearInputs(ordem);
+                    desempenho[4] ++;
+                    desempenho[7] ++;
+                    desempenho[8] = Math.max(desempenho[8], desempenho[7]);
+                    numeroDeJogos ++;
+                    atualizaPlacarDeTentativas();
+                    setTimeout(abreModalEstatisticas, 1000); 
                     break;
                 case 6:
                     mensagemDeRetornoPadrao("Ufa...");
                     preencheInputsComPalavraComAcentos();
                     jogarNovamente("desbloquear");
+                    desempenho[5] ++;
+                    desempenho[7] ++;
+                    desempenho[8] = Math.max(desempenho[8], desempenho[7]);
+                    numeroDeJogos ++;
+                    atualizaPlacarDeTentativas();
+                    setTimeout(abreModalEstatisticas, 1000); 
                     ordem = 5;
                     break;
                     default:
             }
         } 
         
-        ordem += 1;
+        ordem ++;
         palavraFormada = [];
         listaLetras = [];
         zeraPosicaoDoInput();
@@ -90,6 +131,13 @@ function tentarPalavra() {
     if (ordem > 6) {
         mensagemDeRetornoPadrao(`A palavra era: ${palavraSorteada[1].toUpperCase()}`); // imprime a palavra com acento
         jogarNovamente("desbloquear");
+        desempenho[6] ++; // derrota
+        
+        console.log(Math.max(desempenho[8], desempenho[7]))
+        desempenho[7] = 0;
+        numeroDeJogos ++;
+        atualizaPlacarDeTentativas();
+        setTimeout(abreModalEstatisticas, 1000); 
     }
 }
 
@@ -218,7 +266,7 @@ document.addEventListener("keypress", function(evento) {
     }
 });
 
-if (window.innerWidth < 768) {
+if (window.innerWidth < 768)  {
     // Evento da tecla ENTER do teclado virtual
     document.querySelector("[data-tecla-especial=enviar]").addEventListener("click", tentarPalavra);
 }
