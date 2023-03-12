@@ -32,50 +32,125 @@ export function abreModalEstatisticas() {
     opacidade.classList.toggle("escondido");
 }
 
-// // ------------------------ ESTATÍSTICAS ------------------------
+// ----------------- ESTATÍSTICAS / DESEMPENHO -----------------------
+// ----------------------- LOCALSTORAGE ------------------------------
+const barraEstatisticas = document.querySelectorAll("[data-estatisticas]");
+const barraDesempenho = document.querySelectorAll("[data-desempenho]");
 let tamanhoDaBarra = 0;
-let numeroDeVitorias = 0;
-export let numeroDeJogos = 0;
+let recebeBanco = [];
 export let desempenho = {
     vitorias: [0,0,0,0,0,0],
+    numeroDeVitorias: [0],
     derrotas: [0],
+    numeroDeJogos: [0],
     sequenciaDeVitorias: [0],
     maiorSequencia: [0]
 }
 
-export function atualizaPlacarDeTentativas(vitorias, derrotas) {
-    const barraDesempenho = document.querySelectorAll("[data-desempenho]");
-
-    if (vitorias != null) {
-        desempenho.vitorias[vitorias] ++;
-        desempenho.sequenciaDeVitorias[0] ++;
-        desempenho.maiorSequencia[0] = Math.max(desempenho.sequenciaDeVitorias[0], desempenho.maiorSequencia[0]);
-    } else if (derrotas != null) {
-        desempenho.derrotas[derrotas] ++;
-        desempenho.sequenciaDeVitorias[0] = 0;
-    }
-    numeroDeJogos ++;
-    
+if (localStorage.hasOwnProperty("Desempenho")) { // Se existe banco, pegar os valores e jogar no modal.
+    recebeBanco = JSON.parse(localStorage.getItem("Desempenho"));
 
     barraDesempenho.forEach((barra, indice) => {   
         if (indice < 6) {
-            numeroDeVitorias += desempenho.vitorias[indice];
-            barra.innerHTML = desempenho.vitorias[indice];
-            tamanhoDaBarra = (desempenho.vitorias[indice] / numeroDeJogos) * 100;
+            barra.innerHTML = recebeBanco.vitorias[indice];
+            tamanhoDaBarra = (recebeBanco.vitorias[indice] / recebeBanco.numeroDeJogos[0]) * 100;
         } else {
-            barra.innerHTML = desempenho.derrotas[0];
-            tamanhoDaBarra = (desempenho.derrotas[0] / numeroDeJogos) * 100;
+            barra.innerHTML = recebeBanco.derrotas[0];
+            tamanhoDaBarra = (recebeBanco.derrotas[0] / recebeBanco.numeroDeJogos[0]) * 100;
         }
         barra.style.width = `${tamanhoDaBarra}%`; 
     });
 
-    const barraEstatisticas = document.querySelectorAll("[data-estatisticas]");
-    console.log(`numero de jogos: ${numeroDeJogos}`)
-    console.log(`numero de vitorias: ${numeroDeVitorias}`)
-    barraEstatisticas[0].innerHTML = numeroDeJogos;
-    barraEstatisticas[1].innerHTML = Math.ceil((numeroDeVitorias / numeroDeJogos) * 100) +"%";
-    barraEstatisticas[2].innerHTML = desempenho.sequenciaDeVitorias[0];
-    barraEstatisticas[3].innerHTML = desempenho.maiorSequencia[0];
+    barraEstatisticas[0].innerHTML = recebeBanco.numeroDeJogos[0];
+    barraEstatisticas[1].innerHTML = Math.ceil((recebeBanco.numeroDeVitorias[0] / recebeBanco.numeroDeJogos[0]) * 100) +"%";
+    barraEstatisticas[2].innerHTML = recebeBanco.sequenciaDeVitorias[0];
+    barraEstatisticas[3].innerHTML = recebeBanco.maiorSequencia[0];
+}
 
-    numeroDeVitorias = 0;
+export function atualizaPlacarDeTentativas(vitorias, derrotas) {
+
+    recebeBanco = JSON.parse(localStorage.getItem("Desempenho")); // Recebe o banco
+
+    if (localStorage.hasOwnProperty("Desempenho")) { // Se existe banco, pega os valores e adiciona com os que virão do atualizaPlacarDeTentativas
+        
+        if (vitorias >= 0 && derrotas == null) { // Se for vitória
+            
+            for (let i=0; i < desempenho.vitorias.length; i++) {
+                desempenho.vitorias[i] = recebeBanco.vitorias[i];
+            }
+
+            desempenho.vitorias[vitorias] ++;
+
+            desempenho.derrotas[0] = recebeBanco.derrotas[0];
+            
+            desempenho.sequenciaDeVitorias[0] = recebeBanco.sequenciaDeVitorias[0];
+            desempenho.sequenciaDeVitorias[0] ++;
+
+            desempenho.maiorSequencia[0] = recebeBanco.maiorSequencia[0];
+            desempenho.maiorSequencia[0] = Math.max(desempenho.sequenciaDeVitorias[0], desempenho.maiorSequencia[0]);
+
+        } else if (derrotas == 0 && vitorias == null) { // Se for derrota
+            
+            desempenho.derrotas[derrotas] = recebeBanco.derrotas[derrotas];
+            desempenho.derrotas[derrotas] ++;
+
+            desempenho.sequenciaDeVitorias[0] = recebeBanco.sequenciaDeVitorias[0];
+            desempenho.sequenciaDeVitorias[0] = 0;  
+        }
+
+        desempenho.numeroDeVitorias[0] = recebeBanco.numeroDeVitorias[0];
+        desempenho.numeroDeVitorias[0] = desempenho.vitorias.reduce((soma, i) => soma + i);
+
+        desempenho.numeroDeJogos[0] = recebeBanco.numeroDeJogos[0];
+        desempenho.numeroDeJogos[0] ++;
+        
+        barraDesempenho.forEach((barra, indice) => {   
+            if (indice < 6) {
+                barra.innerHTML = desempenho.vitorias[indice];
+                tamanhoDaBarra = (desempenho.vitorias[indice] / desempenho.numeroDeJogos[0]) * 100;
+            } else {
+                barra.innerHTML = desempenho.derrotas[0];
+                tamanhoDaBarra = (desempenho.derrotas[0] / desempenho.numeroDeJogos[0]) * 100;
+            }
+            barra.style.width = `${tamanhoDaBarra}%`; 
+        });
+
+        barraEstatisticas[0].innerHTML = desempenho.numeroDeJogos[0];
+        barraEstatisticas[1].innerHTML = Math.ceil((desempenho.numeroDeVitorias[0] / desempenho.numeroDeJogos[0]) * 100) +"%";
+        barraEstatisticas[2].innerHTML = desempenho.sequenciaDeVitorias[0];
+        barraEstatisticas[3].innerHTML = desempenho.maiorSequencia[0];
+
+        localStorage.setItem("Desempenho", JSON.stringify(desempenho)); // Manda para o banco
+
+    } else { // Se não existe banco, cria os primeiros valores
+
+        if (vitorias != null) {
+            desempenho.vitorias[vitorias] ++;
+            desempenho.sequenciaDeVitorias[0] ++;
+            desempenho.maiorSequencia[0] = Math.max(desempenho.sequenciaDeVitorias[0], desempenho.maiorSequencia[0]);
+        } else if (derrotas != null) {
+            desempenho.derrotas[derrotas] ++;
+            desempenho.sequenciaDeVitorias[0] = 0;
+        }
+        desempenho.numeroDeVitorias[0] = desempenho.vitorias.reduce((soma, i) => soma + i);
+        desempenho.numeroDeJogos[0] ++;
+        
+        barraDesempenho.forEach((barra, indice) => {   
+            if (indice < 6) {
+                barra.innerHTML = desempenho.vitorias[indice];
+                tamanhoDaBarra = (desempenho.vitorias[indice] / desempenho.numeroDeJogos[0]) * 100;
+            } else {
+                barra.innerHTML = desempenho.derrotas[0];
+                tamanhoDaBarra = (desempenho.derrotas[0] / desempenho.numeroDeJogos[0]) * 100;
+            }
+            barra.style.width = `${tamanhoDaBarra}%`; 
+        });
+        
+        localStorage.setItem("Desempenho", JSON.stringify(desempenho)); // Manda para o banco
+        
+        barraEstatisticas[0].innerHTML = desempenho.numeroDeJogos[0];
+        barraEstatisticas[1].innerHTML = Math.ceil((desempenho.numeroDeVitorias[0] / desempenho.numeroDeJogos[0]) * 100) +"%";
+        barraEstatisticas[2].innerHTML = desempenho.sequenciaDeVitorias[0];
+        barraEstatisticas[3].innerHTML = desempenho.maiorSequencia[0];
+    }  
 }

@@ -46,6 +46,6 @@ Projeto inspirado nos jogos [Palavra do Dia](https://palavra-do-dia.pt/) e [Term
 
 - ## Extra
 
+- [X] Salvar informações dos inputs no localStorage;
 - [ ] Sortear uma palavra aleatoriamente a cada 24 horas;
-- [ ] Salvar informações dos inputs no localStorage;
 - [ ] Criar modal com histórico de acertos e erros;
