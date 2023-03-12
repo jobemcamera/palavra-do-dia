@@ -9,7 +9,7 @@
 .palavra__retorno {
     display: flex;
     justify-content: center;
-    padding: 3em 0;
+    padding: 1.5em 0;
 }
 
 .palavra__retorno--mensagem {
@@ -18,11 +18,11 @@
     border-radius: 5px;
     position: absolute;
     padding: 0.75em;
-    top: 2em;
+    top: 0;
 }
 
 .reiniciar__partida {
-    padding: 2em 0;
+    padding-top: 1em;
 }
 
 .reiniciar__partida--botao {
@@ -117,5 +117,15 @@ input:focus {
     .letra {
         width: 50px;
         height: 50px;
+    }
+    .palavra__retorno {
+        padding: 3em 0;
+    }
+    .palavra__retorno--mensagem {
+        top: 2em;
+        font-size: var(--fonte-tamanho-texto-desktop);
+    }
+    .reiniciar__partida--botao {
+        font-size: var(--fonte-tamanho-texto-desktop);
     }
 }

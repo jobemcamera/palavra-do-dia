@@ -2,9 +2,9 @@
 
 :root {
     --fonte-tamanho-titulo-desktop: 30px;
-    --fonte-tamanho-titulo-mobile: 25px;
+    --fonte-tamanho-titulo-mobile: 20px;
     --fonte-tamanho-texto-desktop: 18px;
-    --fonte-tamanho-texto-mobile: 16px;
+    --fonte-tamanho-texto-mobile: 12px;
     --fonte-tamanho-botao-desktop: 20px;
     --fonte-tamanho-botao-mobile: 18px;
     --fonte-tamanho-input: 40px;

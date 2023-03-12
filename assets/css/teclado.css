@@ -3,7 +3,7 @@
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    padding: 4em 0 2em 0;
+    padding-top: 1em;
     margin: 0 auto;
     text-align: center;
     gap: 0.25em;
@@ -41,6 +41,9 @@
     .teclado__container,
     .teclado__container--linha {
         gap: 0.5em;
+    }
+    .teclado__container {
+        padding-top: 7em;
     }
 }
 
