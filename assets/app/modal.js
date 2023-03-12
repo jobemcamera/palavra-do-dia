@@ -1,6 +1,3 @@
-// import { desempenho } from "./main.js";
-// import { numeroDeJogos } from "./main.js";
-
 // -------------------------- MODAL DÚVIDAS --------------------------
 
 const abrirModalDuvidas = document.querySelector("#botao-modal-duvidas");

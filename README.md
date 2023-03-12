@@ -1,6 +1,6 @@
 # Jogo da Palavra
 
-Projeto inspirado nos jogos [Palavra do Dia](https://palavra-do-dia.pt/) e [Termo](https://term.ooo/).
+Projeto inspirado nos jogos [Wordle](https://www.nytimes.com/games/wordle/index.html), [Palavra do Dia](https://palavra-do-dia.pt/), [Letreco](https://www.gabtoschi.com/letreco/) e [Termo](https://term.ooo/).
 
 ## Desafios
 
@@ -42,10 +42,9 @@ Projeto inspirado nos jogos [Palavra do Dia](https://palavra-do-dia.pt/) e [Term
 - [X] Botão para jogar novamente;
 - [X] Criar modal com informações de como jogar;
 - [X] Criar responsividade versão mobile/tablet.
-
+- [X] Criar modal com histórico de acertos e erros;
+- [X] Salvar informações dos inputs no localStorage;
 
 - ## Extra
 
-- [X] Salvar informações dos inputs no localStorage;
 - [ ] Sortear uma palavra aleatoriamente a cada 24 horas;
-- [ ] Criar modal com histórico de acertos e erros;

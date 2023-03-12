@@ -5,11 +5,11 @@ inputDaLetra[0].focus();
 // Evento de keypress para impedir caracteres especiais
 inputDaLetra.forEach((elemento) => {
     elemento.addEventListener("keypress", function(teclaPressionada) {
-        if (!verificaCaracter(teclaPressionada)) {
+        if (verificaCaracter(teclaPressionada) == false) {
             teclaPressionada.preventDefault();
         } else if (verificaCaracter(teclaPressionada)) { // mudar depois para só else
             elemento.addEventListener("keydown", function(teclaPressionada) {
-                if (!caracteresFuncionais(teclaPressionada.key)) {
+                if (caracteresFuncionais(teclaPressionada.key) == false) {
                     if (avancaLetra(elemento)) {
                         elemento.nextElementSibling.focus();
                     }
@@ -35,11 +35,13 @@ function verificaCaracter(teclaPressionada) {
     const caracter = String.fromCharCode(teclaPressionada.keyCode);
     if (caracter.match(padrao)) {
         return true;
-    }
+    } else {
+        return false;
+    } 
 }
 
 function caracteresFuncionais(caracterFuncional) {
-    const listaCaracteresFuncionais = ["Enter", "Backspace", "Tab", "Space"]
+    const listaCaracteresFuncionais = ["Enter", "Backspace"];
     if (listaCaracteresFuncionais.includes(caracterFuncional)) {
         return true;
     } else {
