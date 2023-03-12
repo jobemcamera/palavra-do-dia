@@ -70,35 +70,33 @@ export function atualizaPlacarDeTentativas(vitorias, derrotas) {
 
     if (localStorage.hasOwnProperty("Desempenho")) { // Se existe banco, pega os valores e adiciona com os que virão do atualizaPlacarDeTentativas
         
+        // Propriedade vitorias recebe os valores do banco
+        for (let i=0; i < desempenho.vitorias.length; i++) {
+            desempenho.vitorias[i] = recebeBanco.vitorias[i];
+        }
+
+        // Objeto desempenho recebe os valores do objeto recebeBanco.
+        desempenho.derrotas[0] = recebeBanco.derrotas[0];
+        desempenho.sequenciaDeVitorias[0] = recebeBanco.sequenciaDeVitorias[0];
+        desempenho.maiorSequencia[0] = recebeBanco.maiorSequencia[0];
+        desempenho.derrotas[derrotas] = recebeBanco.derrotas[derrotas];
+        desempenho.sequenciaDeVitorias[0] = recebeBanco.sequenciaDeVitorias[0];
+        desempenho.numeroDeVitorias[0] = recebeBanco.numeroDeVitorias[0];
+        desempenho.numeroDeJogos[0] = recebeBanco.numeroDeJogos[0];
+
         if (vitorias >= 0 && derrotas == null) { // Se for vitória
-            
-            for (let i=0; i < desempenho.vitorias.length; i++) {
-                desempenho.vitorias[i] = recebeBanco.vitorias[i];
-            }
-
+            // Cálculo para vitória
             desempenho.vitorias[vitorias] ++;
-
-            desempenho.derrotas[0] = recebeBanco.derrotas[0];
-            
-            desempenho.sequenciaDeVitorias[0] = recebeBanco.sequenciaDeVitorias[0];
             desempenho.sequenciaDeVitorias[0] ++;
-
-            desempenho.maiorSequencia[0] = recebeBanco.maiorSequencia[0];
             desempenho.maiorSequencia[0] = Math.max(desempenho.sequenciaDeVitorias[0], desempenho.maiorSequencia[0]);
 
         } else if (derrotas == 0 && vitorias == null) { // Se for derrota
-            
-            desempenho.derrotas[derrotas] = recebeBanco.derrotas[derrotas];
+            // Cálculo para derrota
             desempenho.derrotas[derrotas] ++;
-
-            desempenho.sequenciaDeVitorias[0] = recebeBanco.sequenciaDeVitorias[0];
             desempenho.sequenciaDeVitorias[0] = 0;  
         }
 
-        desempenho.numeroDeVitorias[0] = recebeBanco.numeroDeVitorias[0];
         desempenho.numeroDeVitorias[0] = desempenho.vitorias.reduce((soma, i) => soma + i);
-
-        desempenho.numeroDeJogos[0] = recebeBanco.numeroDeJogos[0];
         desempenho.numeroDeJogos[0] ++;
         
         barraDesempenho.forEach((barra, indice) => {   
@@ -121,11 +119,11 @@ export function atualizaPlacarDeTentativas(vitorias, derrotas) {
 
     } else { // Se não existe banco, cria os primeiros valores
 
-        if (vitorias != null) {
+        if (vitorias >= 0 && derrotas == null) {
             desempenho.vitorias[vitorias] ++;
             desempenho.sequenciaDeVitorias[0] ++;
             desempenho.maiorSequencia[0] = Math.max(desempenho.sequenciaDeVitorias[0], desempenho.maiorSequencia[0]);
-        } else if (derrotas != null) {
+        } else if (derrotas == 0 && vitorias == null) {
             desempenho.derrotas[derrotas] ++;
             desempenho.sequenciaDeVitorias[0] = 0;
         }

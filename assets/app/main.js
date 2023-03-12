@@ -32,13 +32,11 @@ function tentarPalavra() {
     palavraFormada = listaLetras.join('');
 
     if (palavraFormada.length < 5 || (listaDePalavrasSemAcento.includes(listaLetras.join('')) == false)) {
-        console.log(palavraFormada)
         palavraFormada = [];
         listaLetras = [];
         mensagemDeRetornoPadrao("Palavra inválida.");
     } else {
         if (palavraFormada == palavraSorteada[0]) {
-            console.log('Você acertou!');
             switch (ordem) {
                 case 1:
                     mensagemDeRetornoPadrao("Extraordinário!!!");
