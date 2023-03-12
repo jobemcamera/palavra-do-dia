@@ -5,6 +5,14 @@ const botaoTecla = document.querySelectorAll("[data-tecla]");
 const botaoApagar = document.querySelector("[data-tecla-especial=apagar]");
 let posicaoDoInput = 0;
 
+// Teste para impedir que o teclado do celular seja aberto quando o foco estiver no input
+let ordemDaPalavra = document.querySelectorAll(`[data-palavra]`);
+    ordemDaPalavra.forEach(letra => {
+        letra.addEventListener("focus", () => {
+            console.log("foco")
+            letra.blur();
+    });
+});
 // Só libera o telcado virtual para versão Mobile/Tablet.
 if (window.innerWidth < 768) {
 
@@ -14,6 +22,9 @@ if (window.innerWidth < 768) {
             
             let ordemDaPalavra = document.querySelectorAll(`[data-palavra="${ordem}"]`);
             ordemDaPalavra.forEach(letra => {
+                
+                
+
                 if (posicaoDoInput <= 4) {
                     ordemDaPalavra[posicaoDoInput].value = letraDoTecladoVirtual;
                     if (avancaLetra(letra)) {
