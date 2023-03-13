@@ -32,9 +32,9 @@ Projeto inspirado nos jogos [Wordle](https://www.nytimes.com/games/wordle/index.
 - [X] Informar ao usuário as seguintes situações:
     - [X] Palavra inválida;
     - [X] Extraordinário para acerto na 1ª tentativa;
-    - [X] Fantástico para acerto na 2ª tentativa;
+    - [X] Impressionante para acerto na 2ª tentativa;
     - [X] Genial para acerto na 3ª tentativa;
-    - [X] Impressionante para acerto na 4ª tentativa;
+    - [X] Fantástico para acerto na 4ª tentativa;
     - [X] Bacana para acerto na 5ª tentativa;
     - [X] Ufa! para acerto na 6ª tentativa;
     - [X] Após o jogador acertar a palavra, é mostrada nos inputs a palavra correta com acento;

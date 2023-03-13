@@ -3,6 +3,7 @@ import { avancaLetra } from "./caracteres.js";
 
 const botaoTecla = document.querySelectorAll("[data-tecla]");
 const botaoApagar = document.querySelector("[data-tecla-especial=apagar]");
+const botaoEnviar = document.querySelector("[data-tecla-especial=enviar]");
 let posicaoDoInput = 0;
 
 // Só libera o telcado virtual para versão Mobile/Tablet.
@@ -11,7 +12,6 @@ if (window.innerWidth < 768) {
     let ordemDaPalavra = document.querySelectorAll(`[data-palavra]`);
         ordemDaPalavra.forEach(letra => {
             letra.addEventListener("focus", () => {
-                console.log("foco")
                 letra.blur();
         });
     });
@@ -62,4 +62,22 @@ if (window.innerWidth < 768) {
 }
 export function zeraPosicaoDoInput() {
     posicaoDoInput = 0;
+}
+
+export function bloquearLiberarTecladoVirtual(acao) {
+    if (window.innerWidth < 768) {
+        if (acao == "bloquear") {
+            botaoTecla.forEach(teclaVirtural => {
+                teclaVirtural.setAttribute("disabled", "disabled");
+            });
+            botaoApagar.setAttribute("disabled", "disabled");
+            botaoEnviar.setAttribute("disabled", "disabled");
+        } else if (acao == "liberar") {
+            botaoTecla.forEach(teclaVirtural => {
+                teclaVirtural.removeAttribute("disabled");
+            });
+            botaoApagar.removeAttribute("disabled");
+            botaoEnviar.removeAttribute("disabled");
+        }
+    }
 }

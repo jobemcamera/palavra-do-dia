@@ -3,6 +3,7 @@ import { sortearPalavra } from "./sortearPalavra.js";
 import { zeraPosicaoDoInput } from "./teclado.js";
 import { atualizaPlacarDeTentativas } from "./modal.js";
 import { abreModalEstatisticas } from "./modal.js";
+import { bloquearLiberarTecladoVirtual } from "./teclado.js";
 
 let palavraFormada = [];
 let listaLetras = [];
@@ -44,15 +45,17 @@ function tentarPalavra() {
                     jogarNovamente("desbloquear");
                     bloquearInputs(ordem);
                     atualizaPlacarDeTentativas(0, null);
-                    setTimeout(abreModalEstatisticas, 1000); 
+                    bloquearLiberarTecladoVirtual("bloquear");
+                    setTimeout(abreModalEstatisticas, 2000); 
                     break;
                 case 2:
-                    mensagemDeRetornoPadrao("Fantástico!!!");
+                    mensagemDeRetornoPadrao("Impressionante!!!");
                     preencheInputsComPalavraComAcentos();
                     jogarNovamente("desbloquear");
                     bloquearInputs(ordem);
                     atualizaPlacarDeTentativas(1, null);
-                    setTimeout(abreModalEstatisticas, 1000); 
+                    bloquearLiberarTecladoVirtual("bloquear");
+                    setTimeout(abreModalEstatisticas, 2000); 
                     break;
                 case 3:
                     mensagemDeRetornoPadrao("Genial!");
@@ -60,15 +63,17 @@ function tentarPalavra() {
                     jogarNovamente("desbloquear");
                     bloquearInputs(ordem);
                     atualizaPlacarDeTentativas(2, null);
-                    setTimeout(abreModalEstatisticas, 1000); 
+                    bloquearLiberarTecladoVirtual("bloquear");
+                    setTimeout(abreModalEstatisticas, 2000); 
                     break;
                 case 4:
-                    mensagemDeRetornoPadrao("Impressionante!");
+                    mensagemDeRetornoPadrao("Fantástico!");
                     preencheInputsComPalavraComAcentos();
                     jogarNovamente("desbloquear");
                     bloquearInputs(ordem);               
                     atualizaPlacarDeTentativas(3, null);
-                    setTimeout(abreModalEstatisticas, 1000); 
+                    bloquearLiberarTecladoVirtual("bloquear");
+                    setTimeout(abreModalEstatisticas, 2000); 
                     break;
                 case 5:
                     mensagemDeRetornoPadrao("Bacana.");
@@ -76,14 +81,16 @@ function tentarPalavra() {
                     jogarNovamente("desbloquear");
                     bloquearInputs(ordem);
                     atualizaPlacarDeTentativas(4, null);
-                    setTimeout(abreModalEstatisticas, 1000); 
+                    bloquearLiberarTecladoVirtual("bloquear");
+                    setTimeout(abreModalEstatisticas, 2000); 
                     break;
                 case 6:
                     mensagemDeRetornoPadrao("Ufa...");
                     preencheInputsComPalavraComAcentos();
                     jogarNovamente("desbloquear");
                     atualizaPlacarDeTentativas(5, null);
-                    setTimeout(abreModalEstatisticas, 1000); 
+                    bloquearLiberarTecladoVirtual("bloquear");
+                    setTimeout(abreModalEstatisticas, 2000); 
                     ordem = 5;
                     break;
                     default:
@@ -100,7 +107,8 @@ function tentarPalavra() {
         mensagemDeRetornoPadrao(`A palavra era: ${palavraSorteada[1].toUpperCase()}`); // imprime a palavra com acento
         jogarNovamente("desbloquear");
         atualizaPlacarDeTentativas(null, 0);
-        setTimeout(abreModalEstatisticas, 1000); 
+        bloquearLiberarTecladoVirtual("bloquear");
+        setTimeout(abreModalEstatisticas, 2000); 
     }
 }
 
@@ -111,6 +119,7 @@ botaoJogarNovamente.addEventListener("click", () => {
     mensagemDeRetorno.style.backgroundColor = "transparent"; 
     palavraSorteada = sortearPalavra();
     jogarNovamente("bloquear");
+    bloquearLiberarTecladoVirtual("liberar");
     novoJogo();
 });
 
