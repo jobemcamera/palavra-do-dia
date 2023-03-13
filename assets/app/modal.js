@@ -50,10 +50,10 @@ if (localStorage.hasOwnProperty("Desempenho")) { // Se existe banco, pegar os va
     barraDesempenho.forEach((barra, indice) => {   
         if (indice < 6) {
             barra.innerHTML = recebeBanco.vitorias[indice];
-            tamanhoDaBarra = (recebeBanco.vitorias[indice] / recebeBanco.numeroDeJogos[0]) * 100;
+            tamanhoDaBarra = ((recebeBanco.vitorias[indice] / recebeBanco.numeroDeJogos[0]) * 100).toFixed(0);
         } else {
             barra.innerHTML = recebeBanco.derrotas[0];
-            tamanhoDaBarra = (recebeBanco.derrotas[0] / recebeBanco.numeroDeJogos[0]) * 100;
+            tamanhoDaBarra = ((recebeBanco.derrotas[0] / recebeBanco.numeroDeJogos[0]) * 100).toFixed(0);
         }
         barra.style.width = `${tamanhoDaBarra}%`; 
     });
@@ -102,10 +102,10 @@ export function atualizaPlacarDeTentativas(vitorias, derrotas) {
         barraDesempenho.forEach((barra, indice) => {   
             if (indice < 6) {
                 barra.innerHTML = desempenho.vitorias[indice];
-                tamanhoDaBarra = (desempenho.vitorias[indice] / desempenho.numeroDeJogos[0]) * 100;
+                tamanhoDaBarra = ((desempenho.vitorias[indice] / desempenho.numeroDeJogos[0]) * 100).toFixed(0);
             } else {
                 barra.innerHTML = desempenho.derrotas[0];
-                tamanhoDaBarra = (desempenho.derrotas[0] / desempenho.numeroDeJogos[0]) * 100;
+                tamanhoDaBarra = ((desempenho.derrotas[0] / desempenho.numeroDeJogos[0]) * 100).toFixed(0);
             }
             barra.style.width = `${tamanhoDaBarra}%`; 
         });
@@ -133,10 +133,10 @@ export function atualizaPlacarDeTentativas(vitorias, derrotas) {
         barraDesempenho.forEach((barra, indice) => {   
             if (indice < 6) {
                 barra.innerHTML = desempenho.vitorias[indice];
-                tamanhoDaBarra = (desempenho.vitorias[indice] / desempenho.numeroDeJogos[0]) * 100;
+                tamanhoDaBarra = ((desempenho.vitorias[indice] / desempenho.numeroDeJogos[0]) * 100).toFixed(0);
             } else {
                 barra.innerHTML = desempenho.derrotas[0];
-                tamanhoDaBarra = (desempenho.derrotas[0] / desempenho.numeroDeJogos[0]) * 100;
+                tamanhoDaBarra = ((desempenho.derrotas[0] / desempenho.numeroDeJogos[0]) * 100).toFixed(0);
             }
             barra.style.width = `${tamanhoDaBarra}%`; 
         });
