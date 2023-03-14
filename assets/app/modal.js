@@ -79,7 +79,6 @@ export function atualizaPlacarDeTentativas(vitorias, derrotas) {
         desempenho.derrotas[0] = recebeBanco.derrotas[0];
         desempenho.sequenciaDeVitorias[0] = recebeBanco.sequenciaDeVitorias[0];
         desempenho.maiorSequencia[0] = recebeBanco.maiorSequencia[0];
-        desempenho.derrotas[derrotas] = recebeBanco.derrotas[derrotas];
         desempenho.sequenciaDeVitorias[0] = recebeBanco.sequenciaDeVitorias[0];
         desempenho.numeroDeVitorias[0] = recebeBanco.numeroDeVitorias[0];
         desempenho.numeroDeJogos[0] = recebeBanco.numeroDeJogos[0];

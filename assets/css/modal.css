@@ -115,8 +115,8 @@ a {
     justify-content: right;
     padding: 0 0.3em;
     background-color: var(--cor-borda-input-padrao);
-    width: 2%;
-    min-width: 2%;
+    width: 5%;
+    min-width: 5%;
     font-size: var(--fonte-tamanho-texto-mobile);
 }
 
