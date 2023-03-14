@@ -1,8 +1,66 @@
-# Jogo da Palavra
+# Acerte a Palavra
 
 Projeto inspirado nos jogos [Wordle](https://www.nytimes.com/games/wordle/index.html), [Palavra do Dia](https://palavra-do-dia.pt/), [Letreco](https://www.gabtoschi.com/letreco/) e [Termo](https://term.ooo/).
 
+# Índice
+
+<!--ts-->
+   * [Tecnologias utilizadas](#Tecnologias-utilizadas)
+   * [O Jogo](#O-Jogo)
+        * [Desktop](#Desktop)
+        * [Mobile](#Mobile)
+        * [Estatísticas](#Estatísticas)
+        * [Lista de palavras](#Lista-de-palavras)
+   * [Desafios](#Desafios)
+   * [Screenshots](#Screenshots)
+<!--te-->
+
+## Tecnologias utilizadas
+
+- HTML;
+- CSS;
+- JavaScript.
+
+## O Jogo
+
+O jogo consiste em acertar a palavra de 5 letras sorteada aleatoriamente na lista de palavras estabelecida. Você terá 6 tentativas para acertar. Para cada palavra válida, as letras ficarão destacadas com as seguintes cores:
+
+- Verde: letra existe na palavra e está na posição correta;
+- Amarelo: letra existe na palavra e está na posição errada;
+- Cinza: letra não existe na palavra.
+
+O jogo irá retornar a mensagem "Palavra inválida." caso a palavra não exista no português ou na lista de palavras estabelecida.
+
+Se você vencer o jogo acertando a palavra ou perder acabando as tentativas, o botão "Novo Jogo" será habilitado e uma nova palavra será sorteada. Para o caso de derrota, a palavra sorteada será mostrada na tela para conferência.
+
+### Desktop
+
+Para jogar, coloque o foco (clicar com o cursor do mouse) no primeiro input (quadradinho) e basta começar a digitar as letras que formam a palavra. Após isso, pressione a tecla ENTER. Caso a palavra seja aceita, a próxima tentativa será liberada. O teclado virtual é bloqueado para versão desktop.
+
+### Mobile
+
+Para jogar, basta utilizar o teclado virtual para digitar as letras que formam a palavra. Após isso, pressione a tecla ENTER. Caso a palavra seja aceita, a próxima tentativa será liberada.
+
+### Estatísticas 
+
+Para cada navegador que você utilizar, será salvo um progresso com as estatísticas do jogo:
+
+- Número de jogos;
+- Número de vitórias;
+- Sequência de vitórias;
+- Melhor sequência;
+- Gráfico em barras indicando a quantidade de derrotas e vitórias para cada ordem de acerto (1 a 6 tentativas).
+
+Todas as informações são salvas no localStorage do navegador.
+
+### Lista de palavras
+
+Para alimentar uma lista de palavras de 5 letras, foi utilizada a lista do [Dicio](https://www.dicio.com.br/palavras-com-cinco-letras/) que contém 1000 exemplares.
+Ao longo dos meus teste e feedback de amigos, fui incluindo manualmente novas palavras possíveis.
+
 ## Desafios
+
+Ao longo do processo de construção do jogo, foram estabelecidos os seguintes desafios:
 
 - [X] Layout inicial da página;
 - [X] Criar um array de palavras com 5 letras;
@@ -45,6 +103,43 @@ Projeto inspirado nos jogos [Wordle](https://www.nytimes.com/games/wordle/index.
 - [X] Criar modal com histórico de acertos e erros;
 - [X] Salvar informações dos inputs no localStorage;
 
-- ## Extra
+- ### Extra
 
 - [ ] Sortear uma palavra aleatoriamente a cada 24 horas;
+
+
+## Screenshots
+
+### Desktop
+
+Jogo na versão Desktop
+
+![image](https://user-images.githubusercontent.com/109925623/225011820-3081e930-d763-4109-8d11-ec61a1ac8ec3.png)
+
+Modal de informações do jogo
+
+![image](https://user-images.githubusercontent.com/109925623/225012012-b325c154-0390-4463-a8c0-163c3f0fe76f.png)
+
+Modal de estatísticas do jogo
+
+![image](https://user-images.githubusercontent.com/109925623/225012103-fed15b26-1c95-4441-8acb-6d3995db89fa.png)
+
+Vencendo o jogo
+
+![image](https://user-images.githubusercontent.com/109925623/225012209-0b16cab1-7242-46df-99ac-887e54b1c95e.png)
+
+Palavra inválida
+
+![image](https://user-images.githubusercontent.com/109925623/225012676-58792de2-2dd9-4d39-b680-21521b724f88.png)
+
+Perdendo o jogo
+
+![image](https://user-images.githubusercontent.com/109925623/225012824-7a5a9b8f-453a-4464-ac3c-1c221dfdbaea.png)
+
+
+### Mobile
+
+Jogo na versão Mobile
+
+![image](https://user-images.githubusercontent.com/109925623/225013015-19c74374-82de-4852-a617-5ef65d994815.png)
+
