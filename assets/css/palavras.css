@@ -3,27 +3,24 @@
     flex-direction: column;
     align-items: center;
     justify-content: center;
-    position: relative;
+    margin: 0 auto;
 }
 
 .palavra__retorno {
     display: flex;
     justify-content: center;
-    padding: 1.5em 0;
+    z-index: 4;
+    padding-top: 1em;
+    min-height: 30px;
 }
 
 .palavra__retorno--mensagem {
     font-size: var(--fonte-tamanho-texto-mobile);
     border: none;
     border-radius: 5px;
-    position: absolute;
     padding: 0.75em;
-    top: 0;
 }
 
-.reiniciar__partida {
-    padding-top: 1em;
-}
 
 .reiniciar__partida--botao {
     padding: 0.75em;
@@ -40,9 +37,10 @@
     margin: 0 auto;
     justify-content: center;
     align-items: center;
-    width: 50vw;
+    width: 100%;
     text-align: center;
     gap: 0.5em;
+    padding: 1em 0;
 }
 
 .palavra__inputs {
@@ -72,7 +70,7 @@ input:focus {
 .letra {
     width: 40px;
     height: 40px;
-    font-size: var(--fonte-tamanho-input);
+    font-size: var(--fonte-tamanho-titulo-mobile);
     text-align: center;
     text-transform: uppercase;
 }
@@ -117,9 +115,10 @@ input:focus {
     .letra {
         width: 50px;
         height: 50px;
+        font-size: var(--fonte-tamanho-titulo-desktop);
     }
     .palavra__retorno {
-        padding: 3em 0;
+        min-height: 45px;
     }
     .palavra__retorno--mensagem {
         top: 2em;
