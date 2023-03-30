@@ -31,7 +31,7 @@ O jogo consiste em acertar a palavra de 5 letras sorteada aleatoriamente na list
 
 O jogo irá retornar a mensagem "Palavra inválida." caso a palavra não exista no português ou na lista de palavras estabelecida.
 
-Se você vencer o jogo acertando a palavra ou perder acabando as tentativas, o botão "Novo Jogo" será habilitado e uma nova palavra será sorteada. Para o caso de derrota, a palavra sorteada será mostrada na tela para conferência.
+Se você vencer o jogo acertando a palavra ou perder (acabando as tentativas), o botão "Novo Jogo" será habilitado e uma nova palavra será sorteada. Para o caso de derrota, a palavra sorteada será mostrada na tela para conferência.
 
 ### Desktop
 
@@ -56,7 +56,7 @@ Todas as informações são salvas no localStorage do navegador.
 ### Lista de palavras
 
 Para alimentar uma lista de palavras de 5 letras, foi utilizada a lista do [Dicio](https://www.dicio.com.br/palavras-com-cinco-letras/) que contém 1000 exemplares.
-Ao longo dos meus teste e feedback de amigos, fui incluindo manualmente novas palavras possíveis.
+Ao longo dos meus testes e feedback de amigos, fui incluindo manualmente novas palavras possíveis.
 
 ## Desafios
 
@@ -71,7 +71,6 @@ Ao longo do processo de construção do jogo, foram estabelecidos os seguintes d
 - [X] Apagar letra do input anterior com a tecla Backspace;
 - [X] Verificar se a letra na posição informada é igual a letra na posição da palavra sorteada;
     - [X] Se letra está na posição certa: mudar cor do input para verde;
-        - [ ] Se houver mais de uma letra igual: mudar cor do input para cinza; 
     - [X] Se letra está na posição errada mas existe na palavra sorteada: mudar cor do input para amarelo;
     - [X] Se letra não existe na palavra do sorteada: mudar cor do input para cinza;
 - [X] Animação dos inputs após dar enter nas letras informadas;
